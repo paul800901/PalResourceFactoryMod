@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Ei-Ressourcenverarbeiter"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 Eierplätze. Automatisches Ausbrüten (+50% Tempo) und Zerlegen; Materialien landen vorne zum Aufheben oder Transportieren. Strom: 200/s, beim Ausbrüten 400/s. Pausiert bei Stromausfall und setzt danach fort. Eingelegte Eier sind nicht entnehmbar; Abriss zerstört den Inhalt. Keine lebenden Pals und keine Palbox-Plätze nötig."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Ei-Ressourcenverarbeiter"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 Eierplätze. Automatisches Ausbrüten (+50% Tempo) und Zerlegen; Materialien landen vorne zum Aufheben oder Transportieren. Strom: 200/s, beim Ausbrüten 400/s. Pausiert bei Stromausfall und setzt danach fort. Eingelegte Eier sind nicht entnehmbar; Abriss zerstört den Inhalt. Keine lebenden Pals und keine Palbox-Plätze nötig."
+  }
+}

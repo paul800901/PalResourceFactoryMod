@@ -1,0 +1,12 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "Pal Resource Factory Assets",
+  "Description": "Independent Blueprint and visual assets for Pal Resource Factory.",
+  "Category": "Palworld Mods",
+  "CreatedBy": "Paulus",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false
+}

@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Kaynak Üretim Çiftliği"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Bir erkek ve bir dişi ebeveyn atayıp pasta koyun. Otomatik çiftleştirme, kuluçka (+%100 hız) ve kesim; malzemeler öne düşer. Güç: 500/sn, kuluçkada 1000/sn. Elektrik kesilince durur, gelince devam eder. Yumurtalar ve yavrular geri alınamaz. Tüketilmiş pasta iade edilmez; kullanılmamış pasta geri alınabilir."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Kaynak Üretim Çiftliği"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Bir erkek ve bir dişi ebeveyn atayıp pasta koyun. Otomatik çiftleştirme, kuluçka (+%100 hız) ve kesim; malzemeler öne düşer. Güç: 500/sn, kuluçkada 1000/sn. Elektrik kesilince durur, gelince devam eder. Yumurtalar ve yavrular geri alınamaz. Tüketilmiş pasta iade edilmez; kullanılmamış pasta geri alınabilir."
+  }
+}

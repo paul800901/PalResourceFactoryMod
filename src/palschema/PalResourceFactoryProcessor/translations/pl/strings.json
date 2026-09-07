@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Przetwornik jaj na surowce"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 miejsca na jaja. Automatyczne wykluwanie (szybkość +50%) i ubój; materiały wypadają z przodu do zebrania lub transportu. Energia: 200/s, podczas wykluwania 400/s. Zatrzymuje się bez prądu i wznawia po jego powrocie. Włożonych jaj nie można odzyskać; rozbiórka niszczy zawartość. Nie tworzy żywych Pali ani nie wymaga miejsc w Palboksie."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Przetwornik jaj na surowce"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 miejsca na jaja. Automatyczne wykluwanie (szybkość +50%) i ubój; materiały wypadają z przodu do zebrania lub transportu. Energia: 200/s, podczas wykluwania 400/s. Zatrzymuje się bez prądu i wznawia po jego powrocie. Włożonych jaj nie można odzyskać; rozbiórka niszczy zawartość. Nie tworzy żywych Pali ani nie wymaga miejsc w Palboksie."
+  }
+}

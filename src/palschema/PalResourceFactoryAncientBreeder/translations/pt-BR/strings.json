@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Centro de reprodução de recursos"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Designe um progenitor macho e uma fêmea e forneça bolo. Reprodução, incubação (+100% de velocidade) e abate automáticos; materiais caem à frente. Energia: 500/s, 1000/s durante a incubação. Pausa sem energia e retoma quando ela volta. Ovos e filhotes não podem ser retirados. Bolo consumido não é devolvido; bolo não utilizado pode ser recuperado."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Centro de reprodução de recursos"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Designe um progenitor macho e uma fêmea e forneça bolo. Reprodução, incubação (+100% de velocidade) e abate automáticos; materiais caem à frente. Energia: 500/s, 1000/s durante a incubação. Pausa sem energia e retoma quando ela volta. Ovos e filhotes não podem ser retirados. Bolo consumido não é devolvido; bolo não utilizado pode ser recuperado."
+  }
+}

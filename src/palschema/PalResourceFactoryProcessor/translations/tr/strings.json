@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Yumurta Kaynak İşleyicisi"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 yumurta yuvası. Otomatik kuluçka (+%50 hız) ve kesim; malzemeler toplama veya taşıma için öne düşer. Güç: 200/sn, kuluçkada 400/sn. Elektrik kesilince durur, gelince devam eder. Yerleştirilen yumurtalar geri alınamaz; yıkım içeriği yok eder. Canlı Pal oluşturmaz, Pal Kutusu yuvası gerektirmez."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Yumurta Kaynak İşleyicisi"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 yumurta yuvası. Otomatik kuluçka (+%50 hız) ve kesim; malzemeler toplama veya taşıma için öne düşer. Güç: 200/sn, kuluçkada 400/sn. Elektrik kesilince durur, gelince devam eder. Yerleştirilen yumurtalar geri alınamaz; yıkım içeriği yok eder. Canlı Pal oluşturmaz, Pal Kutusu yuvası gerektirmez."
+  }
+}

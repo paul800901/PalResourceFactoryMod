@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Fasilitas Pembiakan Sumber Daya"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Tugaskan satu induk jantan dan satu betina, lalu sediakan kue. Pembiakan, penetasan (kecepatan +100%) dan penyembelihan otomatis; material jatuh di depan. Daya: 500/detik, 1000/detik saat menetas. Berhenti saat listrik mati dan lanjut saat pulih. Telur dan keturunan tidak dapat diambil. Kue yang dikonsumsi tidak dikembalikan; kue yang belum digunakan dapat diambil."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Fasilitas Pembiakan Sumber Daya"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Tugaskan satu induk jantan dan satu betina, lalu sediakan kue. Pembiakan, penetasan (kecepatan +100%) dan penyembelihan otomatis; material jatuh di depan. Daya: 500/detik, 1000/detik saat menetas. Berhenti saat listrik mati dan lanjut saat pulih. Telur dan keturunan tidak dapat diambil. Kue yang dikonsumsi tidak dikembalikan; kue yang belum digunakan dapat diambil."
+  }
+}

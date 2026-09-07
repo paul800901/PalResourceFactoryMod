@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "资源繁殖场"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "指派一雄一雌亲代并投入蛋糕，自动配种、孵化（速度加成100%）与肢解，材料掉落于前方。一般耗电500／秒，孵化时1000／秒；停电暂停，复电继续。蛋与后代不可取回。已消耗蛋糕不返还；未消耗的库存蛋糕可取回。"
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "资源繁殖场"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "指派一雄一雌亲代并投入蛋糕，自动配种、孵化（速度加成100%）与肢解，材料掉落于前方。一般耗电500／秒，孵化时1000／秒；停电暂停，复电继续。蛋与后代不可取回。已消耗蛋糕不返还；未消耗的库存蛋糕可取回。"
+  }
+}

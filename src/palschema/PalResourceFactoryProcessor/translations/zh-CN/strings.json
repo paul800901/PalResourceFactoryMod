@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "蛋资源处理机"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54格蛋仓，自动孵化（速度加成50%）并肢解，材料掉落于前方，供拾取或搬运。一般耗电200／秒，孵化时400／秒；停电暂停，复电继续。投入的蛋不可取回；拆除会销毁内容。不产生活帕鲁，不占帕鲁终端空位。"
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "蛋资源处理机"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54格蛋仓，自动孵化（速度加成50%）并肢解，材料掉落于前方，供拾取或搬运。一般耗电200／秒，孵化时400／秒；停电暂停，复电继续。投入的蛋不可取回；拆除会销毁内容。不产生活帕鲁，不占帕鲁终端空位。"
+  }
+}

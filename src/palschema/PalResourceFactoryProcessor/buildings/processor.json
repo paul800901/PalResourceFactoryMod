@@ -1,0 +1,38 @@
+{
+  "PRF_EggResourceProcessor": {
+    "BlueprintClassName": "BP_PRF_EggProcessor",
+    "BlueprintClassSoft": "/Game/PalResourceFactory/Processor/BP_PRF_EggProcessor.BP_PRF_EggProcessor_C",
+    "IconTexture": "/Game/PalResourceFactory/Icons/PRF_EggResourceProcessor.PRF_EggResourceProcessor",
+    "Hp": 4000,
+    "Defense": 3,
+    "MaterialType": "Stone",
+    "MaterialSubType": "Stone",
+    "bBelongToBaseCamp": true,
+    "DeteriorationDamage": 0.2,
+    "BuildingData": {
+      "TypeA": "Pal",
+      "TypeB": "Pal_Breed",
+      "TypeUIDisplay": "PalTraining",
+      "Rank": 1,
+      "RequiredBuildWorkAmount": 10000.0,
+      "RequiredEnergyType": "Electric",
+      "ConsumeEnergySpeed": 200.0,
+      "bIsInstallOnlyOnBase": true,
+      "Material1_Id": "Processed_Wood",
+      "Material1_Count": 10,
+      "Material2_Id": "Pal_crystal_S",
+      "Material2_Count": 30,
+      "Material3_Id": "CopperIngot",
+      "Material3_Count": 20,
+      "Material4_Id": "MachineParts",
+      "Material4_Count": 20
+    },
+    "Technology": {
+      "UnlockBuildObjects": ["PRF_EggResourceProcessor"],
+      "IconName": "PRF_EggResourceProcessor",
+      "IsBossTechnology": false,
+      "LevelCap": 1,
+      "Cost": 3
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Ressourcen-Zuchtanlage"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Ein männliches und ein weibliches Elterntier zuweisen und Kuchen einlegen. Automatische Zucht, Ausbrüten (+100% Tempo) und Zerlegen; Materialien landen vorne. Strom: 500/s, beim Ausbrüten 1000/s. Pausiert bei Stromausfall und setzt danach fort. Eier und Nachwuchs sind nicht entnehmbar. Verbrauchter Kuchen wird nicht erstattet; unbenutzter Kuchen kann entnommen werden."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Ressourcen-Zuchtanlage"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Ein männliches und ein weibliches Elterntier zuweisen und Kuchen einlegen. Automatische Zucht, Ausbrüten (+100% Tempo) und Zerlegen; Materialien landen vorne. Strom: 500/s, beim Ausbrüten 1000/s. Pausiert bei Stromausfall und setzt danach fort. Eier und Nachwuchs sind nicht entnehmbar. Verbrauchter Kuchen wird nicht erstattet; unbenutzter Kuchen kann entnommen werden."
+  }
+}

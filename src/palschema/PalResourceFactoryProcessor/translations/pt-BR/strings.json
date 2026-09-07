@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Processador de recursos de ovos"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 espaços para ovos. Incubação automática (+50% de velocidade) e abate; materiais caem à frente para coleta ou transporte. Energia: 200/s, 400/s durante a incubação. Pausa sem energia e retoma quando ela volta. Ovos depositados não podem ser retirados; demolir destrói o conteúdo. Não gera Pals vivos nem exige espaços na Caixa de Pals."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Processador de recursos de ovos"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 espaços para ovos. Incubação automática (+50% de velocidade) e abate; materiais caem à frente para coleta ou transporte. Energia: 200/s, 400/s durante a incubação. Pausa sem energia e retoma quando ela volta. Ovos depositados não podem ser retirados; demolir destrói o conteúdo. Não gera Pals vivos nem exige espaços na Caixa de Pals."
+  }
+}

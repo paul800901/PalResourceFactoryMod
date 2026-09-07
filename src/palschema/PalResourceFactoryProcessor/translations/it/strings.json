@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Processore di risorse dalle uova"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 slot per uova. Incubazione automatica (velocità +50%) e macellazione; materiali rilasciati davanti per raccolta o trasporto. Energia: 200/s, 400/s durante l’incubazione. Si ferma senza corrente e riprende al ripristino. Uova depositate non recuperabili; la demolizione distrugge il contenuto. Nessun Pal vivo né slot nel box Pal richiesto."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Processore di risorse dalle uova"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 slot per uova. Incubazione automatica (velocità +50%) e macellazione; materiali rilasciati davanti per raccolta o trasporto. Energia: 200/s, 400/s durante l’incubazione. Si ferma senza corrente e riprende al ripristino. Uova depositate non recuperabili; la demolizione distrugge il contenuto. Nessun Pal vivo né slot nel box Pal richiesto."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.1",
+  "Category": "Mods",
+  "Description": "Independent Pal Resource Factory asset workspace",
+  "AdditionalPluginDirectories": [
+    "SharedPlugins"
+  ],
+  "Modules": [
+    {
+      "Name": "Pal",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "AdditionalDependencies": [
+        "Foliage",
+        "Engine",
+        "CoreUObject",
+        "UMG",
+        "NiagaraAnimNotifies",
+        "CommonUI",
+        "CommonGame",
+        "Flow"
+      ]
+    },
+    {
+      "Name": "PalModLoader",
+      "Type": "Runtime",
+      "LoadingPhase": "PostConfigInit"
+    }
+  ],
+  "Plugins": [
+    { "Name": "EditorScriptingUtilities", "Enabled": true },
+    { "Name": "PythonScriptPlugin", "Enabled": true },
+    { "Name": "CommonGame", "Enabled": true },
+    { "Name": "CommonUser", "Enabled": true },
+    { "Name": "Flow", "Enabled": true },
+    { "Name": "ModularGameplay", "Enabled": true },
+    { "Name": "ModularGameplayActors", "Enabled": true },
+    { "Name": "PocketpairUser", "Enabled": true },
+    { "Name": "PPSkyCreatorPlugin", "Enabled": true },
+    { "Name": "DiscordPartnerSDK", "Enabled": true },
+    { "Name": "DLSS", "Enabled": true },
+    { "Name": "Wwise", "Enabled": true },
+    { "Name": "LiveLink", "Enabled": false },
+    { "Name": "LiveLinkCamera", "Enabled": false },
+    { "Name": "MayaLiveLink", "Enabled": false },
+    { "Name": "InterchangeEditor", "Enabled": false },
+    { "Name": "OnlineSubsystemEOS", "Enabled": false },
+    { "Name": "EOSShared", "Enabled": false },
+    { "Name": "EOSVoiceChat", "Enabled": false },
+    { "Name": "SocketSubsystemEOS", "Enabled": false },
+    { "Name": "OnlineSubsystemSteam", "Enabled": false },
+    { "Name": "PalResourceFactoryAssets", "Enabled": true }
+  ],
+  "TargetPlatforms": [
+    "Windows"
+  ]
+}

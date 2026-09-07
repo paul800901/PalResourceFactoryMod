@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "タマゴ資源処理機"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "タマゴ54枠。自動で孵化（速度+50%）・解体し、素材を前方に排出。拾得・運搬可能。消費電力は通常200/秒、孵化中400/秒。停電で停止し、復電で再開。投入したタマゴは回収不可。解体すると内容物は消失。生きたパルは生成せず、パルボックスの空き枠も不要。"
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "タマゴ資源処理機"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "タマゴ54枠。自動で孵化（速度+50%）・解体し、素材を前方に排出。拾得・運搬可能。消費電力は通常200/秒、孵化中400/秒。停電で停止し、復電で再開。投入したタマゴは回収不可。解体すると内容物は消失。生きたパルは生成せず、パルボックスの空き枠も不要。"
+  }
+}

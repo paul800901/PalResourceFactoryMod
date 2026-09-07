@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Pemroses Sumber Daya Telur"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 slot telur. Menetaskan otomatis (kecepatan +50%) dan menyembelih; material jatuh di depan untuk diambil atau diangkut. Daya: 200/detik, 400/detik saat menetas. Berhenti saat listrik mati dan lanjut saat pulih. Telur yang dimasukkan tidak dapat diambil; pembongkaran menghancurkan isi. Tidak menghasilkan Pal hidup atau memerlukan slot Palbox."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Pemroses Sumber Daya Telur"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 slot telur. Menetaskan otomatis (kecepatan +50%) dan menyembelih; material jatuh di depan untuk diambil atau diangkut. Daya: 200/detik, 400/detik saat menetas. Berhenti saat listrik mati dan lanjut saat pulih. Telur yang dimasukkan tidak dapat diambil; pembongkaran menghancurkan isi. Tidak menghasilkan Pal hidup atau memerlukan slot Palbox."
+  }
+}

@@ -1,0 +1,42 @@
+[h1]Pal Resource Factory / 帕魯資源工廠[/h1]
+Two machines in one package: Egg Resource Processor + Resource Breeding Facility.
+兩台一包：蛋資源處理機 + 資源繁殖場。
+
+[b]Initial public preview v0.3.15. Windows Steam Palworld 1.0.4.102642, single-player only tested. Back up saves.[/b]
+[b]初次公開預覽版。已實測單人主要流程；多人／專用伺服器及其他遊戲版本未驗證。請先備份存檔。[/b]
+
+[h2]Features / 功能[/h2]
+Egg Resource Processor: 54 egg slots, automatic incubation (+50% speed), native butchering results dropped in front. Power 200/s, 400/s during incubation.
+Resource Breeding Facility: assign one male and one female parent and provide cake; automatic breeding, incubation (+100% speed), and native offspring butchering. Power 500/s, 1000/s during incubation.
+Both pause without electricity and resume with power. Materials can be picked up or transported.
+
+蛋資源處理機：54 格蛋倉，自動孵化（速度加成 50%）及支解；一般耗電 200／秒、孵化中 400／秒。
+資源繁殖場：指派一雄一雌並提供蛋糕，自動配種、孵化（速度加成 100%）及支解後代；一般耗電 500／秒、孵化中 1000／秒。
+使用遊戲當下的原版結果，不複製掉落表；材料掉落於前方。停電暫停、復電續行。
+
+[h2]Irreversible inputs / 不可逆投入[/h2]
+Deposited eggs, processing offspring, consumed cake and processing contents cannot be reclaimed. Demolition destroys processing contents. Only unused stock cake is recoverable.
+投入的蛋、處理中的後代、已消耗蛋糕與處理內容不可取回；拆除銷毀內容。只有尚未消耗的庫存蛋糕可以取回。
+
+[h2]Installation / 安裝[/h2]
+Subscribe to and enable UE4SS Experimental for Palworld, PalSchema, and this item in Mod Management. Restart the game fully. Unlock both technologies and use the B build menu.
+訂閱並在模組管理啟用 UE4SS Experimental for Palworld、PalSchema 與本項目，再完整重啟。到科技頁解鎖，按 B 建造。
+This preview retains the tested level-1 unlocks for both technologies (3/4 points), not final progression balance. Both required 500 construction work in the tested build.
+本預覽版保留實測的等級 1 解鎖（3／4 點），不是最終科技平衡；實測兩台建造工作量皆為 500。
+Do not install manual and Workshop copies at the same time. Back up saves and remove custom buildings while the mod is enabled before uninstalling; demolition destroys irreversible contents.
+不要同時裝手動版與工作坊版。移除前先備份，並在模組仍啟用時拆除自訂建築；不可返還內容會被銷毀。
+
+[h2]Languages / 語言[/h2]
+17 interface languages follow the game setting automatically; restart after language changes. No F2 settings or extra language button. Includes technology, B construction and building/inventory text. Model lettering stays unchanged.
+介面 17 語言自動跟隨遊戲，切換後完整重啟；不需要 F2 或語言自訂按鈕。包含科技、B 建造、建築／庫存介面文字；機身印字不變。
+Language layouts/fonts and switching have not been individually verified or native-speaker reviewed.
+各語言排版、字型與切換尚未逐一實機驗證，亦未經母語校閱。
+
+[h2]Verification / 驗證範圍[/h2]
+Author-tested single-player: construction visuals, processing, normal restart, forced exit/re-entry, power recovery, repeated deposits, cancellation/demolition, single settlement and unused-versus-consumed cake refunds. This does not guarantee every crash timing. Fresh Workshop installation and multiplayer are not yet game-verified.
+單人實測涵蓋建造模型、處理、重登、強制退出後重進、斷電復電、連續投入、取消／拆除、單次結算與蛋糕返還規則；不保證所有崩潰時點。工作坊全新安裝和多人尚未實機驗證。
+Native code is game-version-specific. Disable after game updates until compatibility is confirmed.
+原生程式與遊戲版本綁定，遊戲更新後請先停用，等候相容性確認。
+
+[url=https://github.com/paul800901/PalResourceFactoryMod]Open source / MIT 原始碼[/url]
+Not affiliated with Pocketpair. Dependencies are installed separately, not bundled.

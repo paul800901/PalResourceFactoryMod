@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Egg Resource Processor"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 egg slots. Automatically incubates (+50% speed) and butchers Pals; materials drop in front for pickup or transport. Power: 200/s, 400/s while incubating. Pauses without power and resumes when restored. Deposited eggs cannot be retrieved; demolition destroys contents. No live Pals or Palbox slots required."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Egg Resource Processor"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 egg slots. Automatically incubates (+50% speed) and butchers Pals; materials drop in front for pickup or transport. Power: 200/s, 400/s while incubating. Pauses without power and resumes when restored. Deposited eggs cannot be retrieved; demolition destroys contents. No live Pals or Palbox slots required."
+  }
+}

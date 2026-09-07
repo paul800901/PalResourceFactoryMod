@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Procesador de recursos de huevos"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 espacios para huevos. Incuba automáticamente (+50% de velocidad) y descuartiza; suelta materiales al frente para recoger o transportar. Energía: 200/s, 400/s al incubar. Se pausa sin electricidad y continúa al restablecerse. Los huevos depositados no se recuperan; demoler destruye el contenido. No genera Pals vivos ni requiere espacios en la caja de Pals."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Procesador de recursos de huevos"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 espacios para huevos. Incuba automáticamente (+50% de velocidad) y descuartiza; suelta materiales al frente para recoger o transportar. Energía: 200/s, 400/s al incubar. Se pausa sin electricidad y continúa al restablecerse. Los huevos depositados no se recuperan; demoler destruye el contenido. No genera Pals vivos ni requiere espacios en la caja de Pals."
+  }
+}

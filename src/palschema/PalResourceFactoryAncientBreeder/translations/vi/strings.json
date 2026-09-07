@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Cơ sở nhân giống lấy tài nguyên"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Chỉ định một con đực và một con cái làm bố mẹ rồi cung cấp bánh. Tự động phối giống, ấp (tốc độ +100%) và mổ xẻ; nguyên liệu rơi phía trước. Điện: 500/giây, 1000/giây khi ấp. Dừng khi mất điện và tiếp tục khi có điện. Trứng và con non không thể lấy lại. Bánh đã tiêu thụ không được hoàn lại; bánh chưa dùng có thể lấy lại."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Cơ sở nhân giống lấy tài nguyên"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Chỉ định một con đực và một con cái làm bố mẹ rồi cung cấp bánh. Tự động phối giống, ấp (tốc độ +100%) và mổ xẻ; nguyên liệu rơi phía trước. Điện: 500/giây, 1000/giây khi ấp. Dừng khi mất điện và tiếp tục khi có điện. Trứng và con non không thể lấy lại. Bánh đã tiêu thụ không được hoàn lại; bánh chưa dùng có thể lấy lại."
+  }
+}

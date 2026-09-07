@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Centro riproduttivo di risorse"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Assegna un genitore maschio e uno femmina e fornisci torta. Riproduzione, incubazione (velocità +100%) e macellazione automatiche; materiali rilasciati davanti. Energia: 500/s, 1000/s durante l’incubazione. Si ferma senza corrente e riprende al ripristino. Uova e prole non recuperabili. La torta consumata non viene restituita; quella inutilizzata è recuperabile."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Centro riproduttivo di risorse"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Assegna un genitore maschio e uno femmina e fornisci torta. Riproduzione, incubazione (velocità +100%) e macellazione automatiche; materiali rilasciati davanti. Energia: 500/s, 1000/s durante l’incubazione. Si ferma senza corrente e riprende al ripristino. Uova e prole non recuperabili. La torta consumata non viene restituita; quella inutilizzata è recuperabile."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Ośrodek hodowli na surowce"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Przydziel jednego samca i jedną samicę jako rodziców i dostarcz ciasto. Automatyczna hodowla, wykluwanie (szybkość +100%) i ubój; materiały wypadają z przodu. Energia: 500/s, podczas wykluwania 1000/s. Zatrzymuje się bez prądu i wznawia po jego powrocie. Jaj i potomstwa nie można odzyskać. Zużyte ciasto nie jest zwracane; niewykorzystane można odebrać."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Ośrodek hodowli na surowce"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Przydziel jednego samca i jedną samicę jako rodziców i dostarcz ciasto. Automatyczna hodowla, wykluwanie (szybkość +100%) i ubój; materiały wypadają z przodu. Energia: 500/s, podczas wykluwania 1000/s. Zatrzymuje się bez prądu i wznawia po jego powrocie. Jaj i potomstwa nie można odzyskać. Zużyte ciasto nie jest zwracane; niewykorzystane można odebrać."
+  }
+}

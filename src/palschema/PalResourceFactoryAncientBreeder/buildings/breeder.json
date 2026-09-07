@@ -1,0 +1,51 @@
+{
+  "PRF_ResourceBreedingFacility": {
+    "BlueprintClassName": "BP_BuildObject_MultiElectricHatchingPalEggWithBreed",
+    "BlueprintClassSoft": "/Game/Pal/Blueprint/MapObject/BuildObject/BP_BuildObject_MultiElectricHatchingPalEggWithBreed.BP_BuildObject_MultiElectricHatchingPalEggWithBreed_C",
+    "IconTexture": "/Game/PalResourceFactory/Icons/PRF_ResourceBreedingFacility.PRF_ResourceBreedingFacility",
+    "Hp": 6000,
+    "Defense": 3,
+    "MaterialType": "Stone",
+    "MaterialSubType": "Stone",
+    "bBelongToBaseCamp": true,
+    "DeteriorationDamage": 0.2,
+    "Assignments": [{
+      "WorkSuitability": "Anyone",
+      "WorkSuitabilityRank": 1,
+      "bPlayerWorkable": false,
+      "bBaseCampWorkerWorkable": true,
+      "WorkType": "CommonTemp",
+      "WorkActionType": "None",
+      "WorkerMaxNum": 2,
+      "AffectSanityValue": 0.0,
+      "AffectFullStomachValue": 1.0,
+      "MultiRequiredRank1": 1,
+      "MultiRequiredRank2": 1
+    }],
+    "BuildingData": {
+      "TypeA": "Pal",
+      "TypeB": "Pal_Breed",
+      "TypeUIDisplay": "PalTraining",
+      "Rank": 1,
+      "RequiredBuildWorkAmount": 20000.0,
+      "RequiredEnergyType": "Electric",
+      "ConsumeEnergySpeed": 500.0,
+      "bIsInstallOnlyOnBase": true,
+      "Material1_Id": "IronIngot",
+      "Material1_Count": 30,
+      "Material2_Id": "MachineParts2",
+      "Material2_Count": 10,
+      "Material3_Id": "Bio_Coolant",
+      "Material3_Count": 10,
+      "Material4_Id": "MachineParts",
+      "Material4_Count": 30
+    },
+    "Technology": {
+      "UnlockBuildObjects": ["PRF_ResourceBreedingFacility"],
+      "IconName": "PRF_ResourceBreedingFacility",
+      "IsBossTechnology": false,
+      "LevelCap": 1,
+      "Cost": 4
+    }
+  }
+}

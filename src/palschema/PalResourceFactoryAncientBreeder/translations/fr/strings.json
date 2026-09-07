@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Centre de reproduction de ressources"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Affectez un parent mâle et un parent femelle, puis ajoutez du gâteau. Reproduction, incubation (vitesse +100 %) et dépeçage automatiques ; matériaux déposés devant. Énergie : 500/s, 1000/s pendant l’incubation. Pause sans courant, reprise au rétablissement. Œufs et descendants irrécupérables. Gâteau consommé non remboursé ; gâteau inutilisé récupérable."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Centre de reproduction de ressources"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Affectez un parent mâle et un parent femelle, puis ajoutez du gâteau. Reproduction, incubation (vitesse +100 %) et dépeçage automatiques ; matériaux déposés devant. Énergie : 500/s, 1000/s pendant l’incubation. Pause sans courant, reprise au rétablissement. Œufs et descendants irrécupérables. Gâteau consommé non remboursé ; gâteau inutilisé récupérable."
+  }
+}

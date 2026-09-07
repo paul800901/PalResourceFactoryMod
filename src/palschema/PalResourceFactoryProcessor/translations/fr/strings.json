@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_EggResourceProcessor": "Processeur de ressources d’œufs"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_EggResourceProcessor": "54 emplacements d’œufs. Incubation automatique (vitesse +50 %) et dépeçage ; les matériaux tombent devant pour ramassage ou transport. Énergie : 200/s, 400/s pendant l’incubation. Pause sans courant, reprise au rétablissement. Œufs déposés irrécupérables ; démolir détruit le contenu. Aucun Pal vivant ni emplacement de Boîte à Pals requis."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_EggResourceProcessor": "Processeur de ressources d’œufs"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_EggResourceProcessor": "54 emplacements d’œufs. Incubation automatique (vitesse +50 %) et dépeçage ; les matériaux tombent devant pour ramassage ou transport. Énergie : 200/s, 400/s pendant l’incubation. Pause sans courant, reprise au rétablissement. Œufs déposés irrécupérables ; démolir détruit le contenu. Aucun Pal vivant ni emplacement de Boîte à Pals requis."
+  }
+}

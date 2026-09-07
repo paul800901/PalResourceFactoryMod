@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Resource Breeding Facility"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Assign one male and one female parent and supply cake. Automatically breeds, incubates (+100% speed) and butchers offspring; materials drop in front. Power: 500/s, 1000/s while incubating. Pauses without power and resumes when restored. Eggs and offspring cannot be retrieved. Consumed cake is not refunded; unused cake can be recovered."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Resource Breeding Facility"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Assign one male and one female parent and supply cake. Automatically breeds, incubates (+100% speed) and butchers offspring; materials drop in front. Power: 500/s, 1000/s while incubating. Pauses without power and resumes when restored. Eggs and offspring cannot be retrieved. Consumed cake is not refunded; unused cake can be recovered."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "DT_MapObjectNameText": {
+    "MAPOBJECT_NAME_PRF_ResourceBreedingFacility": "Centro de cría de recursos"
+  },
+  "DT_BuildObjectDescText": {
+    "BUILDOBJECT_DESC_PRF_ResourceBreedingFacility": "Asigna un progenitor macho y una hembra y añade pastel. Cría, incuba (+100% de velocidad) y descuartiza automáticamente; deja materiales delante. Energía: 500/s, 1000/s al incubar. Se pausa sin electricidad y continúa cuando vuelve. No se recuperan huevos ni crías. El pastel consumido no se devuelve; el no utilizado se puede recuperar."
+  },
+  "DT_TechnologyNameText": {
+    "NAME_RECIPE_PRF_ResourceBreedingFacility": "Centro de cría de recursos"
+  },
+  "DT_TechnologyDescText": {
+    "DESC_RECIPE_PRF_ResourceBreedingFacility": "Asigna un progenitor macho y una hembra y añade pastel. Cría, incuba (+100% de velocidad) y descuartiza automáticamente; deja materiales delante. Energía: 500/s, 1000/s al incubar. Se pausa sin electricidad y continúa cuando vuelve. No se recuperan huevos ni crías. El pastel consumido no se devuelve; el no utilizado se puede recuperar."
+  }
+}
