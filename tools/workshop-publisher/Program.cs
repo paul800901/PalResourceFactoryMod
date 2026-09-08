@@ -93,7 +93,7 @@ public class Program
                 Check(SteamUGC.SetItemPreview(update, preview), "Preview");
                 Check(SteamUGC.SetItemVisibility(update, ERemoteStoragePublishedFileVisibility.k_ERemoteStoragePublishedFileVisibilityPublic), "Visibility");
                 var uploaded = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(update,
-                    "Initial public single-player preview. 17 game-following languages; language layout and multiplayer not fully verified."));
+                    "v0.3.16 preview: fix ancient breeder stale slot lifecycle across asynchronous settlement. Preserve once-only receipts. Local regression tested; in-game fix validation pending."));
                 Check(uploaded.m_eResult, "Upload");
                 if (uploaded.m_bUserNeedsToAcceptWorkshopLegalAgreement) throw new Exception("Upload received; user must accept Workshop legal agreement.");
                 Console.WriteLine("Published https://steamcommunity.com/sharedfiles/filedetails/?id=" + id);

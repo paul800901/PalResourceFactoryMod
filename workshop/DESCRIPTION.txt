@@ -2,7 +2,7 @@
 Two machines in one package: Egg Resource Processor + Resource Breeding Facility.
 兩台一包：蛋資源處理機 + 資源繁殖場。
 
-[b]Initial public preview v0.3.15. Windows Steam Palworld 1.0.4.102642, single-player only tested. Back up saves.[/b]
+[b]Public preview v0.3.16. Windows Steam Palworld 1.0.4.102642. Base single-player flows tested; this slot-lifecycle fix has local regression tests only, in-game validation pending. Back up saves.[/b]
 [b]初次公開預覽版。已實測單人主要流程；多人／專用伺服器及其他遊戲版本未驗證。請先備份存檔。[/b]
 
 [h2]Features / 功能[/h2]

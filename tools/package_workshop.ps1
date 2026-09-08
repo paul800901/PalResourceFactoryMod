@@ -1,11 +1,12 @@
 [CmdletBinding()]
 param(
     [string]$GameRoot = 'E:/Program Files (x86)/Steam/steamapps/common/Palworld',
-    [string]$OutputDirectory
+    [string]$OutputDirectory,
+    [switch]$AllowUninstalledBuild # Preview packaging; does not claim game validation.
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.15-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
+if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.16-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
 $out = [IO.Path]::GetFullPath($OutputDirectory)
 if (Test-Path -LiteralPath $out) { throw 'Use a new empty output path; existing release packages are not overwritten.' }
 $installed = Join-Path $GameRoot 'Mods/NativeMods/UE4SS/Mods'
@@ -22,7 +23,7 @@ $files = [Collections.Generic.List[object]]::new()
 foreach ($name in @('PalResourceFactoryProcessor','PalResourceFactoryAncientBreeder')) {
     $dll = Join-Path $root $dllPaths[$name]
     $liveDll = Join-Path $installed "$name/dlls/main.dll"
-    if ((Get-FileHash $dll).Hash -ne (Get-FileHash $liveDll).Hash) { throw "Built and tested DLL differ: $name" }
+    if (!$AllowUninstalledBuild -and (Get-FileHash $dll).Hash -ne (Get-FileHash $liveDll).Hash) { throw "Built and installed DLL differ: $name" }
     $files.Add(@{Source=$dll; Relative="Mods/$name/dlls/main.dll"})
     $files.Add(@{Source=(Join-Path $root 'native/enabled.txt'); Relative="Mods/$name/enabled.txt"})
     $schema = Join-Path $root "src/palschema/$name"
@@ -56,7 +57,7 @@ $info = [ordered]@{
     ModName='Pal Resource Factory / 帕魯資源工廠'
     PackageName='PalResourceFactoryMod'
     Thumbnail='thumbnail.png'
-    Version='0.3.15-public-preview'
+    Version='0.3.16-public-preview'
     DebugMode=$false
     MinRevision=102642
     Author='paul800901'

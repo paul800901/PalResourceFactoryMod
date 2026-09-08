@@ -71,7 +71,7 @@ inline std::unique_ptr<Completed> completed(UObject* model, int slot_index) {
     const auto container = ManualSettlement::model_container(model); // Egg module, NOT BreedItemContainer.
     require(slot_index >= 0 && static_cast<size_t>(slot_index) < container.slots.size(), "Invalid breeder egg slot");
     const auto& source = container.slots.at(static_cast<size_t>(slot_index));
-    require(source.state.count == 1 && source.state.item.dynamic != st::DynamicId{}, "Missing unique native egg identity");
+    if (source.state.count != 1 || source.state.item.dynamic == st::DynamicId{}) return {};
     auto* rep = CastField<FStructProperty>(model->GetPropertyByNameInChain(STR("RepInfoArray")));
     auto* items = rep ? CastField<FArrayProperty>(rep->GetStruct()->GetPropertyByName(STR("Items"))) : nullptr;
     auto* inner = items ? CastField<FStructProperty>(items->GetInner()) : nullptr;
@@ -94,8 +94,8 @@ inline std::unique_ptr<Completed> completed(UObject* model, int slot_index) {
         std::memcpy(&name, character->ContainerPtrToValuePtr<void>(data), sizeof(name));
         if (name.index == 0) return {}; // Still incubating; never generate a replacement.
         auto* dynamic = *egg->ContainerPtrToValuePtr<UObject*>(entry);
-        require(live(dynamic) && read_field<st::DynamicId>(dynamic, STR("ID")) == source.state.item.dynamic,
-            "Completed offspring does not match the current egg slot");
+        if (!live(dynamic) || read_field<st::DynamicId>(dynamic, STR("ID")) != source.state.item.dynamic)
+            return {}; // Native slot/replication update is not a completed egg yet.
         return std::make_unique<Completed>(model, source, save->GetStruct().Get(), data);
     }
     return {};

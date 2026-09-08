@@ -26,9 +26,13 @@ public:
         if (!done) return false;
         if (phase == 0) {
             require(model.Get() != nullptr, "Ancient breeder expired before settlement");
-            transaction.validate_pending();
             auto finished = completed(model.Get(), slot);
-            require(finished && finished->egg == egg, "Claimed offspring changed; no settlement");
+            if (!finished || finished->egg != egg) {
+                quarantined = true;
+                Output::send<LogLevel::Warning>(STR("[PRFAncient] EGG_QUARANTINED slot={} source-changed=true other-eggs-continue=true\n"), slot);
+                return true; // Retain receipt; never apply it to a different egg.
+            }
+            transaction.validate_pending();
             if (const auto prior = transaction.prior_ancient_phase()) {
                 if (*prior == st::Phase::GroundRequested) transaction.attempt(true, true);
                 else {
@@ -47,7 +51,11 @@ public:
         } else if (phase == 1) {
             require(model.Get() != nullptr, "Ancient breeder expired before source consumption");
             auto finished = completed(model.Get(), slot);
-            require(finished && finished->egg == egg, "Completed offspring was taken; no material output");
+            if (!finished || finished->egg != egg) {
+                quarantined = true;
+                Output::send<LogLevel::Warning>(STR("[PRFAncient] EGG_QUARANTINED slot={} source-changed=true other-eggs-continue=true\n"), slot);
+                return true;
+            }
             transaction.attempt(true);
             phase = 2;
             disk.start([this] { transaction.persist_ground_requested(); return true; });

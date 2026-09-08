@@ -2,6 +2,7 @@
 #include "AncientBreederSettlement.hpp"
 #include "AncientBreederInputGuard.hpp"
 #include "ProcessorState.hpp"
+#include "AncientConveyor.hpp"
 #include <mutex>
 #include "AncientBreederVisual.hpp"
 #include "AncientBreederSkin.hpp"
@@ -109,15 +110,25 @@ class AncientBreeder final : public CppUserModBase {
                         std::find(power_completed.begin(), power_completed.end(), static_cast<int>(i)) == power_completed.end())
                         incubating = true;
                 if (!facility_power::update(model, incubating ? 1000.0f : 500.0f)) continue;
-                if (machine.pending && machine.pending->poll()) {
+                if (machine.pending) {
+                    // A disk write may span arbitrarily many ticks. Do not
+                    // readmit the consumed egg from the pre-poll snapshot or
+                    // treat native slot reuse as replacement of a locked job.
+                    if (!machine.pending->poll()) continue;
                     if (machine.pending->is_quarantined()) machine.quarantined.insert(machine.pending_egg);
                     if (machine.conveyor.jobs[machine.pending_slot].egg == machine.pending_egg)
                         machine.conveyor.empty(machine.pending_slot);
                     machine.pending.reset();
+                    continue; // Next tick reads post-settlement native state.
                 }
                 const auto& source = power_source;
                 require(source.slots.size() <= machine.conveyor.jobs.size(), "Ancient egg capacity changed");
                 const auto& completed_slots = power_completed;
+                std::array<std::string, 54> current{};
+                for (size_t i = 0; i < source.slots.size(); ++i)
+                    if (source.slots[i].state.count > 0)
+                        current[i] = egg_key(source.slots[i].state.item.dynamic);
+                ancient_breeder::reconcile_conveyor(machine.conveyor, current);
                 // Admission happens only after the native completion save exists.
                 // Existing jobs do not allocate transient parameters each frame.
                 for (size_t i = 0; i < source.slots.size(); ++i) {
@@ -127,7 +138,6 @@ class AncientBreeder final : public CppUserModBase {
                     if (machine.quarantined.contains(key)) continue;
                     auto& job = machine.conveyor.jobs[i];
                     if (job.egg == key) continue;
-                    require(job.egg.empty(), "Locked ancient egg was replaced");
                     if (std::find(completed_slots.begin(), completed_slots.end(), static_cast<int>(i)) == completed_slots.end()) continue;
                     auto finished = ancient_breeder::completed(model, static_cast<int>(i));
                     if (finished) machine.conveyor.inserted(i, key, 0);
@@ -150,7 +160,7 @@ class AncientBreeder final : public CppUserModBase {
 public:
     AncientBreeder() {
         ModName = STR("PalResourceFactoryAncientBreeder");
-        ModVersion = STR("0.1.16-construction-actor");
+        ModVersion = STR("0.1.17-slot-lifecycle");
         ModDescription = STR("Native ancient breeding and incubation with closed offspring settlement; solo test only");
         ModAuthors = STR("Paulus");
     }
@@ -252,7 +262,7 @@ public:
                 }, Hook::FCallbackOptions{false, false, ModName, STR("AncientUnload")});
             require(unload != Hook::ERROR_ID, "Ancient unload hook unavailable");
             ready = true;
-            Output::send<LogLevel::Warning>(STR("[PRFAncient] READY version=0.1.16-construction-actor scope=PRF_ResourceBreedingFacility settlement-enabled={} power=500/1000 game-verified=false\n"), ancient_production_enabled);
+            Output::send<LogLevel::Warning>(STR("[PRFAncient] READY version=0.1.17-slot-lifecycle scope=PRF_ResourceBreedingFacility settlement-enabled={} power=500/1000 game-verified=false\n"), ancient_production_enabled);
         } catch (const std::exception& e) {
             Output::send<LogLevel::Error>(STR("[PRFAncient] START_REFUSED {}\n"), to_wstring(e.what()));
         }

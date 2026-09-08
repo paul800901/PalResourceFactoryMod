@@ -1,4 +1,5 @@
 #include "../native/src/BreederState.hpp"
+#include "../native/src/AncientConveyor.hpp"
 #include <iostream>
 #include <source_location>
 using namespace prf::breeder;
@@ -9,6 +10,27 @@ template<class F> void refused(F f) {
     bool caught{}; try { f(); } catch (const std::exception&) { caught = true; } check(caught);
 }
 int main() {
+    prf::processor::State conveyor;
+    conveyor.inserted(0, "old", 0);
+    conveyor.inserted(1, "moved", 0);
+    conveyor.advance(100, 1);
+    std::array<std::string, 54> native{};
+    native[0] = "moved";
+    native[1] = "new";
+    ancient_breeder::reconcile_conveyor(conveyor, native);
+    conveyor.inserted(0, "moved", 0);
+    conveyor.inserted(1, "new", 0);
+    conveyor.advance(0.1, 1);
+    const auto progress = conveyor.jobs[0].disassembly;
+    ancient_breeder::reconcile_conveyor(conveyor, native);
+    check(conveyor.jobs[0].disassembly == progress);
+    native[0].clear(); // consumed while receipt persistence was delayed
+    ancient_breeder::reconcile_conveyor(conveyor, native);
+    check(conveyor.jobs[0].egg.empty());
+    native[0] = "refilled";
+    ancient_breeder::reconcile_conveyor(conveyor, native);
+    conveyor.inserted(0, "refilled", 0);
+    check(conveyor.jobs[0].disassembly == -1);
     State s;
     refused([&] { s.start("m", "m", Cake::Normal, 1, 10, true); });
     refused([&] { s.start("m", "f", Cake::Normal, 1, 10, false); });
