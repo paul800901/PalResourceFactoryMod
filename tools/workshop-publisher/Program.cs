@@ -83,7 +83,8 @@ public class Program
                 foreach (ulong dep in new ulong[] { 3625223587, 3625280368 })
                 {
                     var dependency = Await<AddUGCDependencyResult_t>(SteamUGC.AddDependency(new PublishedFileId_t(id), new PublishedFileId_t(dep)));
-                    Check(dependency.m_eResult, "Add dependency " + dep);
+                    if (dependency.m_eResult != EResult.k_EResultDuplicateRequest)
+                        Check(dependency.m_eResult, "Add dependency " + dep);
                 }
                 var update = SteamUGC.StartItemUpdate(new AppId_t(Palworld), new PublishedFileId_t(id));
                 Check(SteamUGC.SetItemTitle(update, title), "Title");
