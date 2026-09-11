@@ -308,6 +308,11 @@ public:
     }
     bool load_or_claim() {
         if (auto old = receipt.load()) {
+            if (ancient_breeder && old->phase == st::Phase::RngNotStarted) {
+                receipt.append("RESOLVING\n");
+                Output::send<LogLevel::Normal>(STR("[PRFAncient] UNSTARTED_CLAIM_RESUMED egg={}\n"), to_wstring(receipt.key));
+                return false;
+            }
             if (ancient_breeder && old->phase != st::Phase::Ready) {
                 ancient_prior_phase = old->phase;
                 ready = old->phase == st::Phase::GroundRequested;
@@ -350,6 +355,10 @@ public:
     }
     void persist_applying() { receipt.append("APPLYING\n"); }
     void persist_ground_requested() { receipt.append("GROUND_REQUESTED\n"); }
+    // Teardown only, after joining the worker. Never infer these from an old
+    // receipt: the current owner must know the native call did not start.
+    void persist_rng_not_started() { receipt.append("RNG_NOT_STARTED\n"); }
+    void persist_apply_not_started() { receipt.append("APPLY_NOT_STARTED\n"); }
     void validate_pending() { check_context(); }
     void attempt(bool durable_applying = false, bool remove_previously_settled = false) {
         require(!remove_previously_settled || (ancient_breeder && ancient_prior_phase == st::Phase::GroundRequested),

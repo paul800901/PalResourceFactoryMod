@@ -40,6 +40,20 @@ int main() {
     const auto ready = claim + ready_record(drops);
     const auto loaded = parse_receipt(ready, "egg-key");
     verify_value(loaded.phase == Phase::Ready && loaded.drops == drops, "Saved native drop result changed");
+    const auto unstarted = claim + "RNG_NOT_STARTED\n";
+    verify_value(parse_receipt(unstarted, "egg-key").phase == Phase::RngNotStarted,
+        "Normal unload before RNG must be distinguishable from interrupted RNG");
+    verify_value(parse_receipt(unstarted + "RESOLVING\n" + ready_record(drops), "egg-key").drops == drops,
+        "Unstarted claim cannot continue");
+    const auto deferred = ready + "APPLYING\nAPPLY_NOT_STARTED\n";
+    verify_value(parse_receipt(deferred, "egg-key").phase == Phase::Ready &&
+        parse_receipt(deferred, "egg-key").drops == drops, "Normal unload lost the fixed native result");
+    verify_value(parse_receipt(deferred + "APPLYING\nGROUND_REQUESTED\n", "egg-key").phase == Phase::GroundRequested,
+        "Deferred fixed result cannot finish once");
+    rejects([&] { parse_receipt(claim + "APPLY_NOT_STARTED\n", "egg-key"); });
+    rejects([&] { parse_receipt(ready + "RNG_NOT_STARTED\n", "egg-key"); });
+    rejects([&] { parse_receipt(deferred + "DROPS 0\nREADY\n", "egg-key"); });
+    rejects([&] { parse_receipt(ready + "APPLYING\nGROUND_REQUESTED\nAPPLY_NOT_STARTED\n", "egg-key"); });
     verify_value(parse_receipt(ready + "APPLYING\n", "egg-key").phase == Phase::Applying, "Uncertain apply must not reset");
     verify_value(parse_receipt(ready + "APPLYING\nVERIFIED\n", "egg-key").phase == Phase::Verified, "Verified receipt lost");
     verify_value(parse_receipt(ready + "APPLYING\nGROUND_REQUESTED\n", "egg-key").phase == Phase::GroundRequested,

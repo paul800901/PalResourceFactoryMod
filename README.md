@@ -2,11 +2,12 @@
 
 獨立的 Palworld MOD：蛋資源處理機 + 資源繁殖場。自動孵化、依遊戲原版支解結果產生材料，掉落在機器前方供拾取或搬運。
 
-[Steam 工作坊（兩台一包）](https://steamcommunity.com/sharedfiles/filedetails/?id=3797706995) · [下載 v0.3.15 預覽版](https://github.com/paul800901/PalResourceFactoryMod/releases/tag/v0.3.15)
+[Steam 工作坊（兩台一包）](https://steamcommunity.com/sharedfiles/filedetails/?id=3797706995) · [下載 v0.3.17 預覽版](https://github.com/paul800901/PalResourceFactoryMod/releases/tag/v0.3.17)
 
-**公開預覽版 v0.3.16。Windows Steam Palworld 1.0.4.102642。原有單人流程已實測；本次第二台蛋槽生命週期修正僅完成本機回歸，遊戲內驗證待補。**
+**公開預覽版 v0.3.17。Windows Steam Palworld 1.0.4.102642。作者已確認本機五顆舊卡蛋個別復原後可以繼續處理；長時間及 FPS 驗證尚未完成。**
 
-本次修正：非同步結算期間不再使用消耗前快照重新排入蛋；閒置佇列依目前蛋槽清除舊身分。結算中的來源若改變，沿用單筆隔離而非整機停機，不重抽掉落、不刪除結算紀錄、不增加返還。結算等待期間佇列計時暫停，磁碟緩慢時吞吐量可能降低。
+本次修正：資源繁殖場正常退出世界時，保存尚未執行的步驟；重進後可接續處理，沿用已保存的原版支解材料。完成狀態檢查直接讀取原版資料，僅實際計算掉落時建立暫時個體。滿槽或缺蛋糕不阻擋既有完成蛋的處理。
+舊版已留下的不確定結算紀錄仍保留隔離，更新不會自動補發所有舊卡蛋。這次五顆舊蛋另經個別復原；該一次性處理不隨公開套件發送。這不是強制退出或崩潰時的無損保證。
 多人、專用伺服器及其他遊戲版本未驗證，不宣稱支援。原生程式使用此版本的遊戲位址，遊戲更新後請先停用並等待相容性確認。使用前備份存檔。
 
 ## 兩台機器
@@ -20,7 +21,7 @@
 - 投入的蛋、處理中後代、已消耗蛋糕不可取回；拆除不返還處理內容。
 - 尚未消耗的庫存蛋糕可以取回。原版建材返還與內容物返還是不同規則。
 - 不複製掉落表，使用遊戲當下的孵化及支解結果；不提供後代選育或救回功能。
-- 本預覽版保留測試過的科技設定：兩座科技目前都在等級 1，分別需要 3／4 科技點，並非最終解鎖平衡。建造工作量依原版 26／36 級建築資料調整，實測兩台皆為 500。
+- 兩座科技刻意配置於等級 1，分別需要 3／4 科技點，以避免與其他科技項目重疊，不必重做科技介面。建造工作量依原版 26／36 級建築資料調整，實測兩台皆為 500。
 
 ## 安裝
 
@@ -44,12 +45,12 @@
 
 作者單人實測通過：建造預覽／建造中／完成模型、兩台主要流程、正常重登、強制退出後重進、斷電復電、連續投入、取消／拆除、單次結算、未用蛋糕返還與已用蛋糕不返還。低幀率回歸問題在該測試環境已改善。
 
-這些是有限實測，並非所有崩潰時點、硬體與存檔條件的保證。核心 5 項測試通過不等同多人或新版本遊戲驗證。工作坊包的全新安裝流程仍需獨立遊戲內驗證。
+這些是有限實測，並非所有崩潰時點、硬體與存檔條件的保證。本次六項核心／模擬邊界測試通過，包含未開始結算時退出、保存結果續作、不重複出料及失敗隔離；不等同多人或新版本遊戲驗證。工作坊包的全新安裝流程仍需獨立遊戲內驗證。
 
 ## 原始碼與建置
 
 - `native/src/EggProcessor.cpp`：目前第一台原生模組（0.3.15-localization）。
-- `native/src/AncientBreeder.cpp`：目前第二台原生模組（0.1.16-construction-actor）。
+- `native/src/AncientBreeder.cpp`：目前第二台原生模組（0.1.18-unload-continuation）。
 - `src/palschema/PalResourceFactoryProcessor`、`PalResourceFactoryAncientBreeder`：目前建築和翻譯資料。
 - `src/localization/strings.json`：共用文字來源；`tools/generate_localizations.ps1 -Check` 檢查生成結果。
 - `art/blender`、`unreal/Content/PalResourceFactory`：本專案模型、貼圖與 UE 資產。
@@ -81,7 +82,9 @@ Unreal 資產需合法取得的 Palworld Modding Kit／UE 5.1 與 Blender。SDK�
 
 Two independent resource machines in one Workshop package: deposit eggs into the 54-slot Egg Resource Processor, or assign male/female parents and supply cake to the Resource Breeding Facility. Both automatically incubate and butcher using current native game results, then drop materials in front. Power loss pauses processing; power restoration resumes it.
 
-Inputs are irreversible. Deposited eggs, offspring and consumed cake are not refunded. Only unused cake remains recoverable. This initial public preview retains level-1 technology unlocks for both machines; this is not final progression balance.
+Inputs are irreversible. Deposited eggs, offspring and consumed cake are not refunded. Only unused cake remains recoverable. Both technologies deliberately unlock at level 1 to avoid overlapping other technology entries without rebuilding the technology interface.
+
+Version 0.3.17 resumes unstarted breeding-facility settlement after normal world exit, retains saved native drops and reduces temporary object creation. The author confirmed continued processing after individual recovery of five old stuck eggs. That recovery is not shipped: older ambiguous receipts remain isolated and may need individual diagnosis. Six local tests pass; long-running, forced-exit and FPS behavior are not guaranteed.
 
 Requires UE4SS Experimental for Palworld and PalSchema. Tested only in single-player on Windows Steam Palworld **1.0.4.102642**. Multiplayer/dedicated servers and other builds are unverified. Back up saves. Version-specific native addresses require compatibility checks after game updates.
 

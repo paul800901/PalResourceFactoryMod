@@ -77,7 +77,7 @@ inline std::array<double, 3> front_outlet(const std::array<double, 3>& origin,
         origin[2] + 200.0 * 2.0 * (x*z - w*y) + 60.0};
 }
 
-enum class Phase { Resolving, Ready, Applying, Verified, GroundRequested };
+enum class Phase { Resolving, Ready, Applying, Verified, GroundRequested, RngNotStarted };
 struct SavedDrop { std::string item; int32_t count{}; bool operator==(const SavedDrop&) const = default; };
 struct Receipt { std::string key; Phase phase{Phase::Resolving}; std::vector<SavedDrop> drops; };
 
@@ -114,8 +114,16 @@ inline Receipt parse_receipt(const std::string& text, const std::string& expecte
             }
             verify_value(bool(in >> tag) && tag == "READY", "Native drop result was not fully saved; no reroll");
             result.phase = Phase::Ready;
+        } else if (tag == "RNG_NOT_STARTED" && result.phase == Phase::Resolving) {
+            // Only the still-live transaction can attest that RNG never ran.
+            result.phase = Phase::RngNotStarted;
+        } else if (tag == "RESOLVING" && result.phase == Phase::RngNotStarted) {
+            result.phase = Phase::Resolving;
         } else if (tag == "APPLYING" && result.phase == Phase::Ready) {
             result.phase = Phase::Applying;
+        } else if (tag == "APPLY_NOT_STARTED" && result.phase == Phase::Applying) {
+            // Keep the original drops; no second calculation on normal reload.
+            result.phase = Phase::Ready;
         } else if (tag == "VERIFIED" && result.phase == Phase::Applying) {
             result.phase = Phase::Verified;
         } else if (tag == "GROUND_REQUESTED" && result.phase == Phase::Applying) {

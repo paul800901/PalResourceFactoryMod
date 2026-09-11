@@ -10,6 +10,21 @@ template<class F> void refused(F f) {
     bool caught{}; try { f(); } catch (const std::exception&) { caught = true; } check(caught);
 }
 int main() {
+    // Native incubation admits completed eggs independently of cake/breeding.
+    // A full native 10-slot batch, or a final 5-egg batch with no new inputs,
+    // must drain through the existing conveyor without needing another egg.
+    for (int egg_count : {5, 10}) {
+        prf::processor::State batch;
+        for (int i = 0; i < egg_count; ++i) batch.inserted(i, "batch-" + std::to_string(i), 0);
+        int processed{};
+        for (int tick = 0; tick < 400 && processed < egg_count; ++tick) {
+            if (const auto due = batch.advance(0.1, 5, 3)) {
+                batch.empty(*due);
+                ++processed;
+            }
+        }
+        check(processed == egg_count && batch.display_counts() == std::array<int, 2>{0, 0});
+    }
     prf::processor::State conveyor;
     conveyor.inserted(0, "old", 0);
     conveyor.inserted(1, "moved", 0);

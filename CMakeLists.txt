@@ -37,6 +37,11 @@ add_executable(async_disk_test tests/async_disk_test.cpp)
 target_compile_options(async_disk_test PRIVATE $<TARGET_PROPERTY:facility_state_test,COMPILE_OPTIONS>)
 add_test(NAME async_disk_test COMMAND async_disk_test)
 
+add_executable(ancient_pending_test tests/ancient_pending_test.cpp)
+target_compile_options(ancient_pending_test PRIVATE $<TARGET_PROPERTY:facility_state_test,COMPILE_OPTIONS>)
+add_test(NAME ancient_pending_test COMMAND ancient_pending_test)
+set_tests_properties(ancient_pending_test PROPERTIES TIMEOUT 10)
+
 add_executable(breeder_state_test tests/breeder_state_test.cpp)
 target_compile_options(breeder_state_test PRIVATE $<TARGET_PROPERTY:facility_state_test,COMPILE_OPTIONS>)
 add_test(NAME breeder_state_test COMMAND breeder_state_test)

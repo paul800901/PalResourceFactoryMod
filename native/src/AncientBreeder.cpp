@@ -1,4 +1,5 @@
 #include "SettlementRuntime.hpp"
+#include "AncientBreederAdapter.hpp"
 #include "AncientBreederSettlement.hpp"
 #include "AncientBreederInputGuard.hpp"
 #include "ProcessorState.hpp"
@@ -139,8 +140,8 @@ class AncientBreeder final : public CppUserModBase {
                     auto& job = machine.conveyor.jobs[i];
                     if (job.egg == key) continue;
                     if (std::find(completed_slots.begin(), completed_slots.end(), static_cast<int>(i)) == completed_slots.end()) continue;
-                    auto finished = ancient_breeder::completed(model, static_cast<int>(i));
-                    if (finished) machine.conveyor.inserted(i, key, 0);
+                    if (ancient_breeder::completed_matches(model, static_cast<int>(i), slot.state.item.dynamic))
+                        machine.conveyor.inserted(i, key, 0);
                 }
                 const auto due = machine.conveyor.advance(seconds, disassembly_interval(), disassembly_capacity());
                 if (due && !machine.pending) {
@@ -160,7 +161,7 @@ class AncientBreeder final : public CppUserModBase {
 public:
     AncientBreeder() {
         ModName = STR("PalResourceFactoryAncientBreeder");
-        ModVersion = STR("0.1.17-slot-lifecycle");
+        ModVersion = STR("0.1.18-unload-continuation");
         ModDescription = STR("Native ancient breeding and incubation with closed offspring settlement; solo test only");
         ModAuthors = STR("Paulus");
     }
@@ -262,7 +263,7 @@ public:
                 }, Hook::FCallbackOptions{false, false, ModName, STR("AncientUnload")});
             require(unload != Hook::ERROR_ID, "Ancient unload hook unavailable");
             ready = true;
-            Output::send<LogLevel::Warning>(STR("[PRFAncient] READY version=0.1.17-slot-lifecycle scope=PRF_ResourceBreedingFacility settlement-enabled={} power=500/1000 game-verified=false\n"), ancient_production_enabled);
+            Output::send<LogLevel::Warning>(STR("[PRFAncient] READY version=0.1.18-unload-continuation scope=PRF_ResourceBreedingFacility settlement-enabled={} power=500/1000 game-verified=false\n"), ancient_production_enabled);
         } catch (const std::exception& e) {
             Output::send<LogLevel::Error>(STR("[PRFAncient] START_REFUSED {}\n"), to_wstring(e.what()));
         }

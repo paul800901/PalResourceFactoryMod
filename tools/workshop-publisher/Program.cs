@@ -38,6 +38,23 @@ public class Program
         Check(r.m_details.m_eResult, "Read item");
         return r.m_details;
     }
+    static (string Cover, List<(string Name, string Url)> Extra) Media(ulong id)
+    {
+        var query = SteamUGC.CreateQueryUGCDetailsRequest(new[] { new PublishedFileId_t(id) }, 1);
+        try {
+            Check(SteamUGC.SetReturnAdditionalPreviews(query, true), "Request media");
+            var result = Await<SteamUGCQueryCompleted_t>(SteamUGC.SendQueryUGCRequest(query));
+            Check(result.m_eResult, "Query media");
+            Check(SteamUGC.GetQueryUGCPreviewURL(query, 0, out string cover, 4096), "Read cover");
+            var extra = new List<(string Name, string Url)>();
+            for (uint i=0; i<SteamUGC.GetQueryUGCNumAdditionalPreviews(query, 0); ++i) {
+                Check(SteamUGC.GetQueryUGCAdditionalPreview(query, 0, i, out string url, 4096,
+                    out string name, 1024, out EItemPreviewType type), "Read gallery");
+                extra.Add((name, url));
+            }
+            return (cover, extra);
+        } finally { SteamUGC.ReleaseQueryUGCRequest(query); }
+    }
     public static int Main(string[] args)
     {
         try
@@ -57,7 +74,64 @@ public class Program
                         ConsumerApp = d.m_nConsumerAppID.ToString(), Description = d.m_rgchDescription }));
                     return 0;
                 }
-                if (args[0] != "publish" || args.Length != 3) throw new Exception("Usage: publish PACKAGE RECEIPT | read ID | probe");
+                if (args[0] == "media" && args.Length == 3)
+                {
+                    ulong mediaId = ulong.Parse(File.ReadAllText(args[2]).Trim());
+                    var before = Details(mediaId);
+                    Check(before.m_nConsumerAppID.m_AppId == Palworld && before.m_ulSteamIDOwner == SteamUser.GetSteamID().m_SteamID,
+                        "Media ownership/app check");
+                    var previous = Media(mediaId);
+                    string folder = Path.GetFullPath(args[1]);
+                    string[] names = { "flow-cover.jpg", "processor.jpg", "breeder.jpg" };
+                    foreach (string name in names) {
+                        var file = new FileInfo(Path.Combine(folder, name));
+                        Check(file.Exists && file.Length > 0 && file.Length < 1000000, "Image size: " + name);
+                    }
+                    var edit = SteamUGC.StartItemUpdate(new AppId_t(Palworld), new PublishedFileId_t(mediaId));
+                    Check(SteamUGC.SetItemPreview(edit, Path.Combine(folder, names[0])), "Set flow cover");
+                    for (int i=1; i<names.Length; ++i) {
+                        int index = previous.Extra.FindIndex(p => Path.GetFileName(p.Name) == names[i]);
+                        string file = Path.Combine(folder, names[i]);
+                        Check(index < 0 ? SteamUGC.AddItemPreviewFile(edit, file, EItemPreviewType.k_EItemPreviewType_Image)
+                            : SteamUGC.UpdateItemPreviewFile(edit, (uint)index, file), "Set gallery: " + names[i]);
+                    }
+                    var mediaUpload = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(edit,
+                        "Images only: text-free process flow cover and both building previews; game files unchanged."));
+                    Check(mediaUpload.m_eResult, "Media upload");
+                    if (mediaUpload.m_bUserNeedsToAcceptWorkshopLegalAgreement) throw new Exception("Workshop legal agreement required.");
+                    var after = Details(mediaId);
+                    var media = Media(mediaId);
+                    Check(after.m_nFileSize == before.m_nFileSize && after.m_rgchDescription == before.m_rgchDescription &&
+                        after.m_rgchTitle == before.m_rgchTitle && after.m_eVisibility == before.m_eVisibility,
+                        "Media-only readback");
+                    Check(media.Extra.Exists(p => Path.GetFileName(p.Name) == names[1]) &&
+                        media.Extra.Exists(p => Path.GetFileName(p.Name) == names[2]), "Both buildings readback");
+                    Console.WriteLine(JsonSerializer.Serialize(new { Item=mediaId, Cover=media.Cover,
+                        Gallery=media.Extra.ConvertAll(p => new { p.Name, p.Url }), Bytes=after.m_nFileSize }));
+                    return 0;
+                }
+                if (args[0] == "describe" && args.Length == 3)
+                {
+                    ulong itemId = ulong.Parse(File.ReadAllText(args[2]).Trim());
+                    var before = Details(itemId);
+                    Check(before.m_nConsumerAppID.m_AppId == Palworld && before.m_ulSteamIDOwner == SteamUser.GetSteamID().m_SteamID,
+                        "Description ownership/app check");
+                    string description = File.ReadAllText(args[1]);
+                    Check(!string.IsNullOrWhiteSpace(description), "Nonempty description");
+                    var edit = SteamUGC.StartItemUpdate(new AppId_t(Palworld), new PublishedFileId_t(itemId));
+                    Check(SteamUGC.SetItemDescription(edit, description), "Description");
+                    var saved = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(edit,
+                        "Description only: clarify player instructions, scope and bilingual presentation; game files unchanged. / 僅更新中英說明與操作指引，模組檔案不變。"));
+                    Check(saved.m_eResult, "Description update");
+                    if (saved.m_bUserNeedsToAcceptWorkshopLegalAgreement) throw new Exception("Workshop legal agreement required.");
+                    var after = Details(itemId);
+                    Check(after.m_rgchDescription == description && after.m_rgchTitle == before.m_rgchTitle &&
+                        after.m_nFileSize == before.m_nFileSize && after.m_eVisibility == before.m_eVisibility,
+                        "Description-only readback");
+                    Console.WriteLine("Verified description-only update; item=" + itemId + "; bytes=" + after.m_nFileSize);
+                    return 0;
+                }
+                if (args[0] != "publish" || args.Length != 3) throw new Exception("Usage: publish PACKAGE RECEIPT | describe DESCRIPTION RECEIPT | read ID | probe");
                 string package = Path.GetFullPath(args[1]), receipt = Path.GetFullPath(args[2]);
                 using var info = JsonDocument.Parse(File.ReadAllText(Path.Combine(package, "Info.json")));
                 string title = info.RootElement.GetProperty("ModName").GetString()!;
@@ -94,7 +168,7 @@ public class Program
                 Check(SteamUGC.SetItemPreview(update, preview), "Preview");
                 Check(SteamUGC.SetItemVisibility(update, ERemoteStoragePublishedFileVisibility.k_ERemoteStoragePublishedFileVisibilityPublic), "Visibility");
                 var uploaded = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(update,
-                    "v0.3.16 preview: fix ancient breeder stale slot lifecycle across asynchronous settlement. Preserve once-only receipts. Local regression tested; in-game fix validation pending."));
+                    "v0.3.17 preview: resume unstarted breeder settlement after normal world exit, reuse saved native drops, and reduce temporary object creation. Local regression passed; author confirmed processing after scoped recovery of old stuck eggs. Existing ambiguous receipts still require individual recovery; multiplayer remains unsupported. / 修正正常退出後結算無法續作，減少暫時物件。舊卡蛋復原後已確認可繼續處理；異常舊紀錄仍需個別處理。"));
                 Check(uploaded.m_eResult, "Upload");
                 if (uploaded.m_bUserNeedsToAcceptWorkshopLegalAgreement) throw new Exception("Upload received; user must accept Workshop legal agreement.");
                 Console.WriteLine("Published https://steamcommunity.com/sharedfiles/filedetails/?id=" + id);

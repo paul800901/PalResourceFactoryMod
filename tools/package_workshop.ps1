@@ -2,11 +2,13 @@
 param(
     [string]$GameRoot = 'E:/Program Files (x86)/Steam/steamapps/common/Palworld',
     [string]$OutputDirectory,
+    [string]$NativeBuildDirectory,
     [switch]$AllowUninstalledBuild # Preview packaging; does not claim game validation.
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.16-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
+if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.17-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
+if (!$NativeBuildDirectory) { $NativeBuildDirectory = Join-Path $root 'build-processor' }
 $out = [IO.Path]::GetFullPath($OutputDirectory)
 if (Test-Path -LiteralPath $out) { throw 'Use a new empty output path; existing release packages are not overwritten.' }
 $installed = Join-Path $GameRoot 'Mods/NativeMods/UE4SS/Mods'
@@ -16,12 +18,12 @@ $pakNames = @{
     PalResourceFactoryAncientBreeder = @('PalResourceFactoryBreederVisual_P.pak','PalResourceFactoryAncientBreederIcons_P.pak')
 }
 $dllPaths = @{
-    PalResourceFactoryProcessor = 'build-processor/processor/main.dll'
-    PalResourceFactoryAncientBreeder = 'build-processor/ancient-breeder/main.dll'
+    PalResourceFactoryProcessor = 'processor/main.dll'
+    PalResourceFactoryAncientBreeder = 'ancient-breeder/main.dll'
 }
 $files = [Collections.Generic.List[object]]::new()
 foreach ($name in @('PalResourceFactoryProcessor','PalResourceFactoryAncientBreeder')) {
-    $dll = Join-Path $root $dllPaths[$name]
+    $dll = Join-Path $NativeBuildDirectory $dllPaths[$name]
     $liveDll = Join-Path $installed "$name/dlls/main.dll"
     if (!$AllowUninstalledBuild -and (Get-FileHash $dll).Hash -ne (Get-FileHash $liveDll).Hash) { throw "Built and installed DLL differ: $name" }
     $files.Add(@{Source=$dll; Relative="Mods/$name/dlls/main.dll"})
@@ -40,7 +42,7 @@ foreach ($name in @('PalResourceFactoryProcessor','PalResourceFactoryAncientBree
         $files.Add(@{Source=(Join-Path $installed "PalSchema/mods/$name/paks/$pak"); Relative="Mods/PalSchema/mods/$name/paks/$pak"})
     }
 }
-$files.Add(@{Source=(Join-Path $root 'art/blender/previews/PRF_EggResourceProcessor.png'); Relative='thumbnail.png'})
+$files.Add(@{Source=(Join-Path $root 'workshop/media/flow-cover.jpg'); Relative='thumbnail.jpg'})
 foreach ($name in @('LICENSE','THIRD_PARTY_NOTICES.md','README.md')) {
     $files.Add(@{Source=(Join-Path $root $name); Relative=$name})
 }
@@ -56,8 +58,8 @@ $hashes = foreach ($file in $files) {
 $info = [ordered]@{
     ModName='Pal Resource Factory / 帕魯資源工廠'
     PackageName='PalResourceFactoryMod'
-    Thumbnail='thumbnail.png'
-    Version='0.3.16-public-preview'
+    Thumbnail='thumbnail.jpg'
+    Version='0.3.17-public-preview'
     DebugMode=$false
     MinRevision=102642
     Author='paul800901'

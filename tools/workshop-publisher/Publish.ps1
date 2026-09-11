@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('probe', 'read', 'publish')][string]$Mode = 'probe',
+    [ValidateSet('probe', 'read', 'publish', 'describe', 'media')][string]$Mode = 'probe',
     [string]$PackageOrId,
     [string]$Receipt
 )

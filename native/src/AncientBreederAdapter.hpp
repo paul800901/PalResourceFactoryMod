@@ -64,9 +64,14 @@ inline std::vector<int> completed_slots(UObject* model) {
     return result;
 }
 
-// Snapshot only a native completed entry whose identity still matches its egg.
-// A caller must not keep raw FastArray pointers across a native operation.
-inline std::unique_ptr<Completed> completed(UObject* model, int slot_index) {
+// Borrow native data for immediate inspection. Never retain this view across
+// a native operation/tick; only the actual butcher call needs an owned copy.
+struct CompletedView {
+    ManualSettlement::Slot source;
+    UScriptStruct* type;
+    void* save;
+};
+inline std::optional<CompletedView> completed_view(UObject* model, int slot_index) {
     require_target(model);
     const auto container = ManualSettlement::model_container(model); // Egg module, NOT BreedItemContainer.
     require(slot_index >= 0 && static_cast<size_t>(slot_index) < container.slots.size(), "Invalid breeder egg slot");
@@ -96,9 +101,18 @@ inline std::unique_ptr<Completed> completed(UObject* model, int slot_index) {
         auto* dynamic = *egg->ContainerPtrToValuePtr<UObject*>(entry);
         if (!live(dynamic) || read_field<st::DynamicId>(dynamic, STR("ID")) != source.state.item.dynamic)
             return {}; // Native slot/replication update is not a completed egg yet.
-        return std::make_unique<Completed>(model, source, save->GetStruct().Get(), data);
+        return CompletedView{source, save->GetStruct().Get(), data};
     }
     return {};
+}
+inline bool completed_matches(UObject* model, int slot, const st::DynamicId& egg) {
+    const auto entry = completed_view(model, slot);
+    return entry && entry->source.state.item.dynamic == egg;
+}
+inline std::unique_ptr<Completed> completed(UObject* model, int slot) {
+    const auto entry = completed_view(model, slot);
+    if (!entry) return {};
+    return std::make_unique<Completed>(model, entry->source, entry->type, entry->save);
 }
 // Caller contract: the exact dynamic egg must already have a durable RNG claim.
 // This primitive neither claims nor consumes. Never retry a failed/interrupted
