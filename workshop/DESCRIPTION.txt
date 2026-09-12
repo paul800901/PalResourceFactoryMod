@@ -35,7 +35,7 @@ Before uninstalling, back up your save and dismantle the mod's buildings while t
 17 interface languages follow the game setting automatically; fully restart after changing the game language. This covers technology, B build-menu and building/inventory text. Model lettering is unchanged. Not all language layouts and translations have been individually verified.
 Version 0.3.17 targets Windows Steam Palworld 1.0.4.102642. This update lets unstarted breeding-facility processing resume after a normal world exit while retaining already calculated drops, and reduces temporary object creation. Local regression tests pass; the author confirmed continued processing after individual recovery of five old stuck eggs. Existing eggs already blocked by an older interrupted operation may still need individual diagnosis; updating alone does not repair every old blocked egg. Long-running and FPS validation remain incomplete. Multiplayer, dedicated servers and other game versions are not supported by this preview. After game updates, wait for compatibility confirmation before re-enabling this mod.
 
-[url=https://github.com/paul800901/PalResourceFactoryMod]Source code and issues on GitHub[/url] — MIT license. Unofficial; not affiliated with Pocketpair.
+[url=https://github.com/paul800901/PalResourceFactoryMod]Source code on GitHub[/url] — MIT license. Unofficial; not affiliated with Pocketpair.
 
 [h2]Issue reports[/h2]
 [url=https://discord.gg/Cv94zj2BB]Discord[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
@@ -78,7 +78,7 @@ Include mod/version, Palworld, mode, steps, UE4SS.log. No private data.
 介面提供 17 種語言，自動跟隨遊戲設定；切換遊戲語言後請完整重啟。涵蓋科技、B 建造選單與建築／庫存介面文字，機身印字維持不變。各語言的排版與翻譯尚未全部逐一驗證。
 目前版本 0.3.17，適用目標為 Windows Steam 版 Palworld 1.0.4.102642。本次修正資源繁殖場在正常退出世界後，尚未執行的結算無法續作的問題，保留已算出的材料，並減少暫時物件建立。已通過本機回歸測試；作者將五顆舊卡蛋個別復原後，已確認可以繼續處理。舊版中斷後已被鎖住的蛋仍可能需要個別診斷，單純更新不會自動修復所有舊卡蛋。長時間與 FPS 驗證尚未完成。本預覽版不支援多人、專用伺服器及其他遊戲版本。遊戲更新後，請等候相容性確認再啟用本模組。
 
-[url=https://github.com/paul800901/PalResourceFactoryMod]GitHub 原始碼與問題回報[/url] — MIT 授權。非官方模組，與 Pocketpair 無隸屬關係。
+[url=https://github.com/paul800901/PalResourceFactoryMod]GitHub 原始碼[/url] — MIT 授權。非官方模組，與 Pocketpair 無隸屬關係。
 
 [h2]問題回報[/h2]
 [url=https://discord.gg/Cv94zj2BB]Discord「帕魯模組問題回報」[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
