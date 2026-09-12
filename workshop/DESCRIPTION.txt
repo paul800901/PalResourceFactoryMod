@@ -38,8 +38,8 @@ Version 0.3.17 targets Windows Steam Palworld 1.0.4.102642. This update lets uns
 [url=https://github.com/paul800901/PalResourceFactoryMod]Source code and issues on GitHub[/url] — MIT license. Unofficial; not affiliated with Pocketpair.
 
 [h2]Issue reports[/h2]
-General users can join [url=https://discord.gg/Cv94zj2BB]Palworld Mod Issue Reports on Discord[/url], or use this project's [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub Issues[/url].
-Include the mod name, Palworld version, mod version, single-player/multiplayer/dedicated-server environment, reproduction steps, and relevant UE4SS.log excerpts. Do not post passwords, account information, or full private paths.
+[url=https://discord.gg/Cv94zj2BB]Discord[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
+Include mod/version, Palworld, mode, steps, UE4SS.log. No private data.
 
 [hr][/hr]
 [h1]帕魯資源工廠[/h1]
@@ -81,5 +81,5 @@ Include the mod name, Palworld version, mod version, single-player/multiplayer/d
 [url=https://github.com/paul800901/PalResourceFactoryMod]GitHub 原始碼與問題回報[/url] — MIT 授權。非官方模組，與 Pocketpair 無隸屬關係。
 
 [h2]問題回報[/h2]
-一般使用者可直接加入 [url=https://discord.gg/Cv94zj2BB]Discord「帕魯模組問題回報」[/url]，也可使用本專案的 [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub Issues[/url]。
-請附模組名稱、Palworld 版本、模組版本、單人／多人／專用伺服器環境、重現步驟，以及相關 UE4SS.log 片段。請勿公開密碼、帳號資料或完整私人路徑。
+[url=https://discord.gg/Cv94zj2BB]Discord「帕魯模組問題回報」[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
+請附模組／Palworld 版本、環境、步驟、UE4SS.log；勿公開私人資料。
