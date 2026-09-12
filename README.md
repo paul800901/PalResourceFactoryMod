@@ -89,3 +89,9 @@ Version 0.3.17 resumes unstarted breeding-facility settlement after normal world
 Requires UE4SS Experimental for Palworld and PalSchema. Tested only in single-player on Windows Steam Palworld **1.0.4.102642**. Multiplayer/dedicated servers and other builds are unverified. Back up saves. Version-specific native addresses require compatibility checks after game updates.
 
 17 interface languages follow the game's language; restart after changing language. Technology/building menus and custom deposit text are localized. Model lettering is unchanged. All language layouts, new Workshop installation, and multiplayer have **not** been verified in game. Published as a preview, not a universal compatibility guarantee.
+
+## 問題回報 / Issue reports
+
+一般使用者可直接加入 [Discord「帕魯模組問題回報」](https://discord.gg/Cv94zj2BB)，也可使用本專案的 [GitHub Issues](https://github.com/paul800901/PalResourceFactoryMod/issues)。請附模組名稱、Palworld 版本、模組版本、單人／多人／專用伺服器環境、重現步驟，以及相關 `UE4SS.log` 片段。請勿公開密碼、帳號資料或完整私人路徑。
+
+General users can join [Palworld Mod Issue Reports on Discord](https://discord.gg/Cv94zj2BB), or use this project's [GitHub Issues](https://github.com/paul800901/PalResourceFactoryMod/issues). Include the mod name, Palworld version, mod version, single-player/multiplayer/dedicated-server environment, reproduction steps, and relevant `UE4SS.log` excerpts. Do not post passwords, account information, or full private paths.
