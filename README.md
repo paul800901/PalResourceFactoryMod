@@ -92,6 +92,6 @@ Requires UE4SS Experimental for Palworld and PalSchema. Tested only in single-pl
 
 ## 問題回報 / Issue reports
 
-一般使用者可直接加入 [Discord「帕魯模組問題回報」](https://discord.gg/Cv94zj2BB)，也可使用本專案的 [GitHub Issues](https://github.com/paul800901/PalResourceFactoryMod/issues)。請附模組名稱、Palworld 版本、模組版本、單人／多人／專用伺服器環境、重現步驟，以及相關 `UE4SS.log` 片段。請勿公開密碼、帳號資料或完整私人路徑。
+一般使用者可直接加入 [Discord「帕魯模組問題回報」](https://discord.gg/Swzj4UjejE)，也可使用本專案的 [GitHub Issues](https://github.com/paul800901/PalResourceFactoryMod/issues)。請附模組名稱、Palworld 版本、模組版本、單人／多人／專用伺服器環境、重現步驟，以及相關 `UE4SS.log` 片段。請勿公開密碼、帳號資料或完整私人路徑。
 
-General users can join [Palworld Mod Issue Reports on Discord](https://discord.gg/Cv94zj2BB), or use this project's [GitHub Issues](https://github.com/paul800901/PalResourceFactoryMod/issues). Include the mod name, Palworld version, mod version, single-player/multiplayer/dedicated-server environment, reproduction steps, and relevant `UE4SS.log` excerpts. Do not post passwords, account information, or full private paths.
+General users can join [Palworld Mod Issue Reports on Discord](https://discord.gg/Swzj4UjejE), or use this project's [GitHub Issues](https://github.com/paul800901/PalResourceFactoryMod/issues). Include the mod name, Palworld version, mod version, single-player/multiplayer/dedicated-server environment, reproduction steps, and relevant `UE4SS.log` excerpts. Do not post passwords, account information, or full private paths.

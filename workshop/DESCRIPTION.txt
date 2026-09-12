@@ -38,7 +38,7 @@ Version 0.3.17 targets Windows Steam Palworld 1.0.4.102642. This update lets uns
 [url=https://github.com/paul800901/PalResourceFactoryMod]Source code on GitHub[/url] — MIT license. Unofficial; not affiliated with Pocketpair.
 
 [h2]Issue reports[/h2]
-[url=https://discord.gg/Cv94zj2BB]Discord[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
+[url=https://discord.gg/Swzj4UjejE]Discord[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
 Include mod/version, Palworld, mode, steps, UE4SS.log. No private data.
 
 [hr][/hr]
@@ -81,5 +81,5 @@ Include mod/version, Palworld, mode, steps, UE4SS.log. No private data.
 [url=https://github.com/paul800901/PalResourceFactoryMod]GitHub 原始碼[/url] — MIT 授權。非官方模組，與 Pocketpair 無隸屬關係。
 
 [h2]問題回報[/h2]
-[url=https://discord.gg/Cv94zj2BB]Discord「帕魯模組問題回報」[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
+[url=https://discord.gg/Swzj4UjejE]Discord「帕魯模組問題回報」[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
 請附模組／Palworld 版本、環境、步驟、UE4SS.log；勿公開私人資料。
