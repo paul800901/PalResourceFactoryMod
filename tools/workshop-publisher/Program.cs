@@ -136,6 +136,8 @@ public class Program
                 using var info = JsonDocument.Parse(File.ReadAllText(Path.Combine(package, "Info.json")));
                 string title = info.RootElement.GetProperty("ModName").GetString()!;
                 string desc = File.ReadAllText(Path.Combine(package, "DESCRIPTION.txt"));
+                string changeNotes = File.ReadAllText(Path.Combine(package, "CHANGELOG.txt"));
+                Check(!string.IsNullOrWhiteSpace(changeNotes), "Nonempty release change notes");
                 string preview = Path.Combine(package, info.RootElement.GetProperty("Thumbnail").GetString()!);
                 if (!File.Exists(preview) || new FileInfo(preview).Length >= 1_000_000) throw new Exception("Preview must exist and be under 1 MB");
                 ulong id;
@@ -167,8 +169,7 @@ public class Program
                 Check(SteamUGC.SetItemContent(update, package), "Content");
                 Check(SteamUGC.SetItemPreview(update, preview), "Preview");
                 Check(SteamUGC.SetItemVisibility(update, ERemoteStoragePublishedFileVisibility.k_ERemoteStoragePublishedFileVisibilityPublic), "Visibility");
-                var uploaded = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(update,
-                    "v0.3.17 preview: resume unstarted breeder settlement after normal world exit, reuse saved native drops, and reduce temporary object creation. Local regression passed; author confirmed processing after scoped recovery of old stuck eggs. Existing ambiguous receipts still require individual recovery; multiplayer remains unsupported. / 修正正常退出後結算無法續作，減少暫時物件。舊卡蛋復原後已確認可繼續處理；異常舊紀錄仍需個別處理。"));
+                var uploaded = Await<SubmitItemUpdateResult_t>(SteamUGC.SubmitItemUpdate(update, changeNotes));
                 Check(uploaded.m_eResult, "Upload");
                 if (uploaded.m_bUserNeedsToAcceptWorkshopLegalAgreement) throw new Exception("Upload received; user must accept Workshop legal agreement.");
                 Console.WriteLine("Published https://steamcommunity.com/sharedfiles/filedetails/?id=" + id);

@@ -24,4 +24,7 @@ the receipt after partial failures to avoid creating duplicates. The helper
 attaches the UE4SS and PalSchema dependencies and checks Steam's completion and
 public readback. In-game installation still requires separate verification.
 
+The package must contain a nonempty `CHANGELOG.txt`. Its text is submitted as
+the Workshop change note for that content update.
+
 Only use publish with explicit authorization for that repository/package.

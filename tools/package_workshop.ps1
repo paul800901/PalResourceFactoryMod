@@ -7,7 +7,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.17-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
+if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.18-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
 if (!$NativeBuildDirectory) { $NativeBuildDirectory = Join-Path $root 'build-processor' }
 $out = [IO.Path]::GetFullPath($OutputDirectory)
 if (Test-Path -LiteralPath $out) { throw 'Use a new empty output path; existing release packages are not overwritten.' }
@@ -47,6 +47,7 @@ foreach ($name in @('LICENSE','THIRD_PARTY_NOTICES.md','README.md')) {
     $files.Add(@{Source=(Join-Path $root $name); Relative=$name})
 }
 $files.Add(@{Source=(Join-Path $root 'workshop/DESCRIPTION.txt'); Relative='DESCRIPTION.txt'})
+$files.Add(@{Source=(Join-Path $root 'workshop/CHANGELOG.txt'); Relative='CHANGELOG.txt'})
 $hashes = foreach ($file in $files) {
     $target = Join-Path $out $file.Relative
     [IO.Directory]::CreateDirectory((Split-Path -Parent $target)) | Out-Null
@@ -59,7 +60,7 @@ $info = [ordered]@{
     ModName='Pal Resource Factory / 帕魯資源工廠'
     PackageName='PalResourceFactoryMod'
     Thumbnail='thumbnail.jpg'
-    Version='0.3.17-public-preview'
+    Version='0.3.18-public-preview'
     DebugMode=$false
     MinRevision=102642
     Author='paul800901'

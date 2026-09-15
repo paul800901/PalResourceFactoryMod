@@ -108,7 +108,9 @@ CalculateButcher resolve_native() {
     auto* dos = reinterpret_cast<const IMAGE_DOS_HEADER*>(base);
     require(dos && dos->e_magic == IMAGE_DOS_SIGNATURE, "Missing game PE header");
     auto* pe = reinterpret_cast<const IMAGE_NT_HEADERS64*>(base + dos->e_lfanew);
-    require(pe->Signature == IMAGE_NT_SIGNATURE && pe->FileHeader.TimeDateStamp == 1788339267 &&
+    // The inspected 1.0.4 and 1.0.5 executables share the audited native entries.
+    require(pe->Signature == IMAGE_NT_SIGNATURE &&
+        (pe->FileHeader.TimeDateStamp == 1788339267 || pe->FileHeader.TimeDateStamp == 1789097921) &&
         pe->OptionalHeader.SizeOfImage == 0xa011000, "Unsupported executable: native preview disabled");
     constexpr std::array<uint8_t, 32> signature{
         0x48,0x8b,0xc4,0x55,0x53,0x56,0x57,0x41,0x54,0x41,0x55,0x41,0x56,0x41,0x57,0x48,

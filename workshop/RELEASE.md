@@ -1,3 +1,17 @@
+# v0.3.18 compatibility recovery preview — 2026-09-15
+
+This release corrects the executable identity check that rejected Windows Steam Palworld 1.0.5.102999 before either native module initialized. It retains the 1.0.4 identity and existing native signature checks. The author confirmed functional recovery in local single-player; this is not a full regression or fresh Workshop installation test.
+
+- Package version: 0.3.18-public-preview.
+- GitHub tag: v0.3.18 (prerelease).
+- Workshop item: 3797706995.
+- Target: Windows Steam Palworld 1.0.5.102999; local single-player recovery confirmation.
+- Evidence: 17:03:53 both native modules logged READY; at 17:04:17 the custom breeder model was attached, both buildings were ATTACHED, and the processor power module reported powered=true. The author confirmed functional recovery and provided a screenshot showing the custom model and materials in front. This does not establish full machine regression, item-by-item or duplicate-commit behavior, FPS, long-running operation, multiplayer, dedicated servers, or a fresh Workshop installation.
+- Processor DLL internal log version: 0.3.15-localization; SHA-256: C65F8C31435512FFFA4D22B6B490F7EECE0AEAEECB20D9283174705680EE57FA.
+- Breeder DLL internal log version: 0.1.18-unload-continuation; SHA-256: 13D49B9515649C38342F774C942BF8C05718317554FBBE95727A17D3B84C30E9.
+- The planned package excludes saves, processing records, and recovery scripts. Existing blocked eggs may need individual diagnosis. No new 1.0.4 in-game retest is claimed.
+- Workshop change notes and GitHub release body: workshop/CHANGELOG.txt.
+
 # v0.3.17 normal-exit continuation preview — 2026-09-11
 
 Resource Breeding Facility work that has not started its native calculation or

@@ -1,85 +1,70 @@
 [h1]Pal Resource Factory[/h1]
-[i]English first. 繁體中文說明在下半部。[/i]
 
-[h2]Purpose[/h2]
-Two machines for turning eggs and bred offspring into resources with less repetitive work. Designed for midgame shortages of Pal Souls or specific materials, they automate incubation and butchering.
-You trade materials, electricity, eggs and cake for convenience. This is not a free resource generator or a breeding tool for keeping offspring. Output uses the game's native butchering results: no extra drop quantity or rarity bonus, and no guarantee that every Pal drops the material you want.
+Two machines automate incubation and butchering, using native game results and dropping materials in front. They exchange materials, electricity, eggs and cake for convenience; this is not a free resource generator or a way to keep offspring.
 
-[h2]The two machines[/h2]
+[h2]Machines, power and costs[/h2]
 [list]
-[*][b]Egg Resource Processor:[/b] 54 egg slots. Deposit eggs for automatic incubation (+50% speed) and butchering. Power: 200/s normally, 400/s while incubating.
-[*][b]Resource Breeding Facility:[/b] Assign one male and one female parent and supply cake. Automatically breeds, incubates (+100% speed) and butchers the offspring, not the assigned parents. Power: 500/s normally, 1000/s while incubating.
-[*]Both pause without electricity and resume when power returns. Materials drop in front for pickup or transport by Pals.
+[*][b]Egg Resource Processor:[/b] 54 egg slots; automatic incubation (+50%) and butchering. Power: 200/s normally, 400/s while incubating.
+[*][b]Resource Breeding Facility:[/b] Assign one male and one female and supply cake. Automatically breeds, incubates (+100%) and butchers offspring, not the assigned parents. Power: 500/s normally, 1000/s while incubating.
+[*]Both pause without electricity and resume when power returns. Materials drop in front for pickup or transport by Pals. Native results are used without copied drop tables or extra quantity/rarity.
 [/list]
-
-[h2]Unlocks and deliberate costs[/h2]
-Both technologies are available at level 1. The processor costs 3 regular technology points; the breeding facility costs 4. This deliberate placement avoids overlapping other technology entries without resizing or reworking the game's technology interface.
-The practical requirements are materials and sustained power. The breeding facility automates more steps, so it costs more to build and run. Incubation uses more power than normal operation; automation saves repeated actions, not running costs.
+Both technologies unlock at level 1 to avoid overlapping other entries without rebuilding the technology interface. The processor costs 3 regular technology points; the facility costs 4. Construction work is 500 for each.
 [list]
-[*][b]Processor construction:[/b] Wooden Planks ×10, Paldium Fragments ×30, Ingots ×20, Nails ×20.
-[*][b]Breeding facility construction:[/b] Refined Ingots ×30, Circuit Boards ×10, Cryogenic Coolant ×10, Nails ×30.
+[*][b]Processor materials:[/b] Wooden Planks ×10, Paldium Fragments ×30, Ingots ×20, Nails ×20.
+[*][b]Breeding facility materials:[/b] Refined Ingots ×30, Circuit Boards ×10, Cryogenic Coolant ×10, Nails ×30.
 [/list]
 
 [h2]Installation[/h2]
 [olist]
-[*]Subscribe to [url=https://steamcommunity.com/workshop/filedetails/?id=3625223587]UE4SS Experimental (Palworld)[/url], [url=https://steamcommunity.com/workshop/filedetails/?id=3625280368]PalSchema[/url] and this mod.
-[*]Enable all three in the game's Mod Management, then fully restart the game.
-[*]Unlock the desired machine on the technology page, then press B to build it in your base.
+[*]Subscribe to [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3625223587]UE4SS Experimental (Palworld)[/url], [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3625280368]PalSchema[/url] and this mod.
+[*]Enable all three in Mod Management, then fully restart the game.
+[*]Unlock a machine on the technology page and press B to build it in your base.
 [/olist]
 
-[h2]Irreversible inputs and uninstalling[/h2]
-[b]Deposited eggs and offspring being processed cannot be taken back. Consumed cake is not returned; only unused stock cake is recoverable.[/b]
-Before uninstalling, back up your save and dismantle the mod's buildings while the mod is still enabled. Dismantling destroys the remaining processing contents.
+[h2]Irreversible inputs and removal[/h2]
+[b]Deposited eggs, offspring being processed and consumed cake cannot be returned. Only unused stock cake is recoverable.[/b]
+Back up your save before removing the mod. Dismantle its buildings while the mod is enabled; dismantling destroys the remaining processing contents.
 
 [h2]Languages and compatibility[/h2]
-17 interface languages follow the game setting automatically; fully restart after changing the game language. This covers technology, B build-menu and building/inventory text. Model lettering is unchanged. Not all language layouts and translations have been individually verified.
-Version 0.3.17 targets Windows Steam Palworld 1.0.4.102642. This update lets unstarted breeding-facility processing resume after a normal world exit while retaining already calculated drops, and reduces temporary object creation. Local regression tests pass; the author confirmed continued processing after individual recovery of five old stuck eggs. Existing eggs already blocked by an older interrupted operation may still need individual diagnosis; updating alone does not repair every old blocked egg. Long-running and FPS validation remain incomplete. Multiplayer, dedicated servers and other game versions are not supported by this preview. After game updates, wait for compatibility confirmation before re-enabling this mod.
-
+The interface follows the game setting and includes 17 languages. Technology, build-menu, building and inventory text are localized; model lettering is unchanged. Language layouts and translations have not all been verified.
+Version 0.3.18 targets Windows Steam Palworld 1.0.5.102999. The previous PE timestamp check rejected this build before either native module initialized, causing the reported return to the vanilla breeder appearance, stopped automatic butchering, and reappearing Set Egg prompt. This update accepts the inspected 1.0.5 identity while retaining the 1.0.4 identity and existing native signature checks. The author confirmed functional recovery in local single-player; a screenshot shows the custom model and materials in front. This is a scoped recovery check, not a full regression or a separate test of each interaction. FPS, long-running operation, multiplayer, dedicated servers and a fresh Workshop installation are unverified. Existing blocked eggs may need individual diagnosis. Back up your save.
 [url=https://github.com/paul800901/PalResourceFactoryMod]Source code on GitHub[/url] — MIT license. Unofficial; not affiliated with Pocketpair.
 
 [h2]Issue reports[/h2]
-[url=https://discord.gg/Swzj4UjejE]Discord[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
-Include mod/version, Palworld, mode, steps, UE4SS.log. No private data.
+General users can report issues through [url=https://discord.gg/Swzj4UjejE]Discord: Palworld Mod Issue Reports[/url] or this project's [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub Issues[/url]. Include the mod name, Palworld version, mod version, environment (single-player, multiplayer or dedicated server), reproduction steps, and relevant UE4SS.log excerpts. Do not share passwords, account information or full private paths.
 
 [hr][/hr]
 [h1]帕魯資源工廠[/h1]
 
-[h2]設計目的[/h2]
-提供兩台自動化設備，將蛋與配種後代轉為資源，減少重複操作。主要針對遊戲中期缺乏帕魯之魂或特定材料的情況，省去反覆手動孵化與支解的步驟。
-這是用建材、電力、蛋與蛋糕換取省力，不是免費生產資源，也不是用來保留後代的育種設備。產物採用遊戲當下的原版支解結果，不額外提高掉落數量或稀有率，也不保證每種帕魯都能產出你需要的材料。
+兩台機器自動孵化與支解，使用遊戲原版結果，材料掉落在機器前方。以建材、電力、蛋與蛋糕換取省力；不是免費資源產生器，也不是用來保留後代的育種工具。
 
-[h2]兩台設備[/h2]
+[h2]機器、耗電與建造成本[/h2]
 [list]
-[*][b]蛋資源處理機：[/b]54 格蛋倉。投入蛋後自動孵化（速度加成 50%）並支解。一般耗電 200／秒，孵化中 400／秒。
-[*][b]資源繁殖場：[/b]指派一雄一雌親代並供應蛋糕，自動配種、孵化（速度加成 100%）並支解後代；不會支解指派的親代。一般耗電 500／秒，孵化中 1000／秒。
-[*]兩台設備都會在停電時暫停、復電後續行。產出的材料掉落在機器前方，可自行拾取或由帕魯搬運。
+[*][b]蛋資源處理機：[/b]54 格蛋倉；自動孵化（速度加成 50%）並支解。一般耗電 200／秒，孵化時 400／秒。
+[*][b]資源繁殖場：[/b]指派一雄一雌親代並供應蛋糕，自動配種、孵化（速度加成 100%）並支解後代，不會支解指派的親代。一般耗電 500／秒，孵化時 1000／秒。
+[*]兩台都會在停電時暫停、復電後續行；材料掉落在機器前方，可自行拾取或由帕魯搬運。使用原版結果，不複製掉落表，也不額外提高數量或稀有率。
 [/list]
-
-[h2]科技解鎖與成本設計[/h2]
-兩台科技皆可於等級 1 解鎖；蛋資源處理機需要普通科技點 3 點，資源繁殖場需要 4 點。這是刻意的配置，為了避免與其他科技項目重疊，不必擴大或重做遊戲的科技介面。
-實際使用門檻在於建材與持續供電。資源繁殖場整合更多自動化步驟，因此建造與運轉成本較高；孵化期間的耗電也高於平時。省下的是重複操作，不是運轉成本。
+兩座科技刻意配置於等級 1，以避免與其他項目重疊，不必重做科技介面。處理機需要普通科技點 3 點，繁殖場需要 4 點；兩台建築工作量皆為 500。
 [list]
-[*][b]蛋資源處理機建材：[/b]木板 ×10、帕魯礦碎片 ×30、金屬錠 ×20、釘子 ×20。
-[*][b]資源繁殖場建材：[/b]精煉金屬錠 ×30、電路板 ×10、極低溫冷卻介質 ×10、釘子 ×30。
+[*][b]處理機建材：[/b]木板 ×10、帕魯礦碎片 ×30、金屬錠 ×20、釘子 ×20。
+[*][b]繁殖場建材：[/b]精煉金屬錠 ×30、電路板 ×10、極低溫冷卻介質 ×10、釘子 ×30。
 [/list]
 
 [h2]安裝[/h2]
 [olist]
-[*]訂閱 [url=https://steamcommunity.com/workshop/filedetails/?id=3625223587]UE4SS Experimental (Palworld)[/url]、[url=https://steamcommunity.com/workshop/filedetails/?id=3625280368]PalSchema[/url] 與本模組。
-[*]在遊戲的模組管理中啟用這三個項目，再完整重啟遊戲。
-[*]到科技頁解鎖需要的機器，按 B 在據點內建造。
+[*]訂閱 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3625223587]UE4SS Experimental (Palworld)[/url]、[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3625280368]PalSchema[/url] 與本模組。
+[*]在遊戲模組管理中啟用三個項目，再完整重啟遊戲。
+[*]到科技頁解鎖機器，按 B 在據點內建造。
 [/olist]
 
-[h2]不可返還的投入與移除方式[/h2]
-[b]已投入的蛋與處理中的後代無法取回。已消耗的蛋糕不會返還；只有尚未消耗的庫存蛋糕可以取回。[/b]
-移除模組前，請先備份存檔，並在模組仍啟用時拆除這兩種建築。拆除會銷毀機器內剩餘的處理內容。
+[h2]不可返還的投入與移除[/h2]
+[b]已投入的蛋、處理中的後代與已消耗的蛋糕都不能取回；只有尚未消耗的庫存蛋糕可以取回。[/b]
+移除前請先備份存檔，並在模組仍啟用時拆除自訂建築；拆除會銷毀剩餘的處理內容。
 
 [h2]語言與相容性[/h2]
-介面提供 17 種語言，自動跟隨遊戲設定；切換遊戲語言後請完整重啟。涵蓋科技、B 建造選單與建築／庫存介面文字，機身印字維持不變。各語言的排版與翻譯尚未全部逐一驗證。
-目前版本 0.3.17，適用目標為 Windows Steam 版 Palworld 1.0.4.102642。本次修正資源繁殖場在正常退出世界後，尚未執行的結算無法續作的問題，保留已算出的材料，並減少暫時物件建立。已通過本機回歸測試；作者將五顆舊卡蛋個別復原後，已確認可以繼續處理。舊版中斷後已被鎖住的蛋仍可能需要個別診斷，單純更新不會自動修復所有舊卡蛋。長時間與 FPS 驗證尚未完成。本預覽版不支援多人、專用伺服器及其他遊戲版本。遊戲更新後，請等候相容性確認再啟用本模組。
-
+介面自動跟隨遊戲設定，包含 17 種語言。科技、建造選單、建築與庫存文字已本地化；機身印字不變。各語言排版與翻譯尚未全部逐一驗證。
+v0.3.18 目標為 Windows Steam 版 Palworld 1.0.5.102999。舊版 PE timestamp 檢查在兩個原生模組初始化前拒絕此版本，造成繁殖場回到原版外觀、自動支解停止，以及 V 設蛋提示再次出現。本次加入已檢查的 1.0.5 識別，同時保留 1.0.4 識別及既有原生簽章檢查。作者已確認本機單人功能恢復；截圖可見自訂模型與前方材料。這是限定範圍的恢復確認，不代表完整回歸，也未逐項重驗每種互動。FPS、長時間運轉、多人、專用伺服器及全新工作坊安裝尚未驗證；既有卡住的蛋可能需要個別診斷。請先備份存檔。
 [url=https://github.com/paul800901/PalResourceFactoryMod]GitHub 原始碼[/url] — MIT 授權。非官方模組，與 Pocketpair 無隸屬關係。
 
 [h2]問題回報[/h2]
-[url=https://discord.gg/Swzj4UjejE]Discord「帕魯模組問題回報」[/url] · [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub[/url]
-請附模組／Palworld 版本、環境、步驟、UE4SS.log；勿公開私人資料。
+一般使用者可透過 [url=https://discord.gg/Swzj4UjejE]Discord「帕魯模組問題回報」[/url] 或本專案的 [url=https://github.com/paul800901/PalResourceFactoryMod/issues]GitHub Issues[/url] 回報。請提供模組名稱、Palworld 版本、模組版本、環境（單人／多人／專用伺服器）、重現步驟及相關 UE4SS.log 片段。請勿公開密碼、帳號資料或完整私人路徑。
