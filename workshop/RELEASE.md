@@ -1,3 +1,20 @@
+# v0.3.19 forced DirectX 12 material fix — 2026-09-20
+
+This release cooks both custom machines with the SM6 shader path required by
+forced DirectX 12. It fixes the beige/checkerboard fallback materials observed
+with `-dx12`; the author confirmed the intended appearance and normal operation
+in local single-player on Windows Steam Palworld 1.0.5.102999.
+
+- Package version: `0.3.19-public-preview`.
+- GitHub tag: `v0.3.19` (prerelease).
+- Workshop item: `3797706995`.
+- Processor PAK SHA-256: `959F67B9D9C8B9BD2F37FB96151D5ECACBF0D2AF8884A6CF59929F42DD0DFFA4`.
+- Breeder visual PAK SHA-256: `F5845101AF31E5021E9F974F0229BB678BE97B52E3D646AF71220A23FDF942D1`.
+- Release ZIP SHA-256: `BE0F4B2C798E7CC75748A85F7ACDF065BCA265B5BC435C4C3DB95D1C244136AF`.
+- Gameplay, native DLLs, data tables, saves and processing records are unchanged.
+- Fresh Workshop installation, FPS, long-running operation, multiplayer and
+  dedicated servers remain unverified.
+
 # v0.3.18 compatibility recovery preview — 2026-09-15
 
 This release corrects the executable identity check that rejected Windows Steam Palworld 1.0.5.102999 before either native module initialized. It retains the 1.0.4 identity and existing native signature checks. The author confirmed functional recovery in local single-player; this is not a full regression or fresh Workshop installation test.

@@ -7,7 +7,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.18-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
+if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.19-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
 if (!$NativeBuildDirectory) { $NativeBuildDirectory = Join-Path $root 'build-processor' }
 $out = [IO.Path]::GetFullPath($OutputDirectory)
 if (Test-Path -LiteralPath $out) { throw 'Use a new empty output path; existing release packages are not overwritten.' }
@@ -60,7 +60,7 @@ $info = [ordered]@{
     ModName='Pal Resource Factory / 帕魯資源工廠'
     PackageName='PalResourceFactoryMod'
     Thumbnail='thumbnail.jpg'
-    Version='0.3.18-public-preview'
+    Version='0.3.19-public-preview'
     DebugMode=$false
     MinRevision=102642
     Author='paul800901'

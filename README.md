@@ -2,11 +2,11 @@
 
 A standalone Palworld mod with two machines: the Egg Resource Processor and Resource Breeding Facility. They automate incubation and butchering, using the game's native results and dropping materials in front of each machine.
 
-[Steam Workshop package](https://steamcommunity.com/sharedfiles/filedetails/?id=3797706995) · [v0.3.18 public preview](https://github.com/paul800901/PalResourceFactoryMod/releases/tag/v0.3.18)
+[Steam Workshop package](https://steamcommunity.com/sharedfiles/filedetails/?id=3797706995) · [v0.3.19 public preview](https://github.com/paul800901/PalResourceFactoryMod/releases/tag/v0.3.19)
 
-**Public preview v0.3.18. Target: Windows Steam Palworld 1.0.5.102999; local single-player recovery confirmed.**
+**Public preview v0.3.19. Target: Windows Steam Palworld 1.0.5.102999; forced DirectX 12 materials and local single-player operation confirmed.**
 
-The previous PE timestamp check rejected this game build before either native module initialized, causing the reported return to the vanilla breeder appearance, stopped automatic butchering, and reappearing Set Egg prompt. This release accepts the inspected 1.0.5 executable while retaining the 1.0.4 identity and existing native signature checks. The author confirmed functional recovery in local single-player; a screenshot shows the custom model and materials in front. This is a scoped recovery check, not a complete regression or a separate test of each interaction. Existing blocked eggs may still need individual diagnosis.
+The custom machine materials are now cooked for both the existing SM5 path and the SM6 path used by forced DirectX 12. This fixes the beige/checkerboard fallback materials seen with `-dx12`; both machines retained normal operation in the local single-player check. This is a scoped DX12 visual confirmation, not a complete regression. Existing blocked eggs may still need individual diagnosis.
 
 ## English
 
@@ -69,9 +69,9 @@ General users can report issues through [Discord: Palworld Mod Issue Reports](ht
 
 ### 版本與本次確認
 
-公開預覽版 v0.3.18，目標為 Windows Steam 版 Palworld 1.0.5.102999；作者已在本機單人遊戲確認功能恢復。
+公開預覽版 v0.3.19，目標為 Windows Steam 版 Palworld 1.0.5.102999；作者已在強制 DirectX 12 的本機單人遊戲確認材質與功能正常。
 
-舊版 PE timestamp 檢查在兩個原生模組初始化前拒絕此遊戲版本，造成繁殖場回到原版外觀、自動支解停止，以及 V 設蛋提示再次出現。本次加入已檢查的 1.0.5 執行檔識別，同時保留 1.0.4 識別及既有原生簽章檢查。作者已確認本機單人功能恢復；截圖可見自訂模型與前方材料。這是限定範圍的恢復確認，不代表完整回歸，也未逐項重驗每種互動。既有卡住的蛋仍可能需要個別診斷。
+自訂機器材質現在同時包含既有 SM5 與強制 DirectX 12 使用的 SM6。這會修正 `-dx12` 下出現的米黃色／棋盤格備援材質；本機單人檢查中兩台機器仍正常運作。這是限定範圍的 DX12 畫面確認，不代表完整回歸。既有卡住的蛋仍可能需要個別診斷。
 
 ### 兩台機器
 
