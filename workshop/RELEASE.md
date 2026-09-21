@@ -1,3 +1,18 @@
+# v0.3.20 native package repair — 2026-09-21
+
+The v0.3.19 Workshop package accidentally reused the v0.3.15 processor DLL.
+That binary rejects Palworld 1.0.5 before registering the processing and input
+locks, while the building data and materials still load. This exactly produces
+a visible machine whose eggs remain removable and never process.
+
+- Package version: `0.3.20-public-preview`.
+- Target: Windows Steam Palworld `1.0.5.102999`.
+- Packaging now rebuilds both native targets from current source before copying
+  them; matching an old build to an old installed DLL is no longer sufficient.
+- Local log readback confirms `READY`, `ATTACHED` and `powered=true`. The public
+  tester's complete egg consumption/material output remains the runtime gate.
+- Publication readback and final hashes are recorded after upload.
+
 # v0.3.19 forced DirectX 12 material fix — 2026-09-20
 
 This release cooks both custom machines with the SM6 shader path required by

@@ -2,9 +2,9 @@
 
 A standalone Palworld mod with two machines: the Egg Resource Processor and Resource Breeding Facility. They automate incubation and butchering, using the game's native results and dropping materials in front of each machine.
 
-[Steam Workshop package](https://steamcommunity.com/sharedfiles/filedetails/?id=3797706995) · [v0.3.19 public preview](https://github.com/paul800901/PalResourceFactoryMod/releases/tag/v0.3.19)
+[Steam Workshop package](https://steamcommunity.com/sharedfiles/filedetails/?id=3797706995) · [v0.3.20 public preview](https://github.com/paul800901/PalResourceFactoryMod/releases/tag/v0.3.20)
 
-**Public preview v0.3.19. Target: Windows Steam Palworld 1.0.5.102999; forced DirectX 12 materials and local single-player operation confirmed.**
+**Public preview v0.3.20. Target: Windows Steam Palworld 1.0.5.102999; restores the current 1.0.5 native processor in the public package. Local startup/attachment is confirmed; the reporter's complete egg-to-material test is pending.**
 
 The custom machine materials are now cooked for both the existing SM5 path and the SM6 path used by forced DirectX 12. This fixes the beige/checkerboard fallback materials seen with `-dx12`; both machines retained normal operation in the local single-player check. This is a scoped DX12 visual confirmation, not a complete regression. Existing blocked eggs may still need individual diagnosis.
 
@@ -69,7 +69,7 @@ General users can report issues through [Discord: Palworld Mod Issue Reports](ht
 
 ### 版本與本次確認
 
-公開預覽版 v0.3.19，目標為 Windows Steam 版 Palworld 1.0.5.102999；作者已在強制 DirectX 12 的本機單人遊戲確認材質與功能正常。
+公開預覽版 v0.3.20，目標為 Windows Steam 版 Palworld 1.0.5.102999；公開封包已恢復目前的 1.0.5 原生處理器。本機已確認啟動與掛載，回報者的完整蛋到材料測試尚待確認。
 
 自訂機器材質現在同時包含既有 SM5 與強制 DirectX 12 使用的 SM6。這會修正 `-dx12` 下出現的米黃色／棋盤格備援材質；本機單人檢查中兩台機器仍正常運作。這是限定範圍的 DX12 畫面確認，不代表完整回歸。既有卡住的蛋仍可能需要個別診斷。
 

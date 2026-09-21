@@ -7,11 +7,17 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.19-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
+if (!$OutputDirectory) { $OutputDirectory = Join-Path $root ('dist/public-v0.3.20-' + (Get-Date -Format 'yyyyMMdd-HHmmss')) }
 if (!$NativeBuildDirectory) { $NativeBuildDirectory = Join-Path $root 'build-processor' }
 $out = [IO.Path]::GetFullPath($OutputDirectory)
 if (Test-Path -LiteralPath $out) { throw 'Use a new empty output path; existing release packages are not overwritten.' }
 $installed = Join-Path $GameRoot 'Mods/NativeMods/UE4SS/Mods'
+
+# A release package must be built from the current source. Comparing an old
+# build directory with an equally old installed DLL allowed v0.3.19 to ship a
+# pre-1.0.5 processor while its data and materials were current.
+cmake --build $NativeBuildDirectory --config Release --target PalResourceFactoryProcessor PalResourceFactoryAncientBreeder
+if ($LASTEXITCODE -ne 0) { throw "Native release build failed with exit code $LASTEXITCODE" }
 & (Join-Path $PSScriptRoot 'generate_localizations.ps1') -Check
 $pakNames = @{
     PalResourceFactoryProcessor = @('PalResourceFactoryProcessor_P.pak','PalResourceFactoryProcessorIcons_P.pak')
@@ -60,7 +66,7 @@ $info = [ordered]@{
     ModName='Pal Resource Factory / 帕魯資源工廠'
     PackageName='PalResourceFactoryMod'
     Thumbnail='thumbnail.jpg'
-    Version='0.3.19-public-preview'
+    Version='0.3.20-public-preview'
     DebugMode=$false
     MinRevision=102642
     Author='paul800901'

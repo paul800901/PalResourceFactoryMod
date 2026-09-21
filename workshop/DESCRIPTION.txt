@@ -27,7 +27,7 @@ Back up your save before removing the mod. Dismantle its buildings while the mod
 
 [h2]Languages and compatibility[/h2]
 The interface follows the game setting and includes 17 languages. Technology, build-menu, building and inventory text are localized; model lettering is unchanged. Language layouts and translations have not all been verified.
-Version 0.3.19 targets Windows Steam Palworld 1.0.5.102999. Custom machine materials now include the SM6 shader path used by forced DirectX 12, fixing the beige/checkerboard fallback seen with `-dx12`. Both machines retained normal operation in the local single-player check. This is a scoped DX12 visual confirmation, not a full regression. FPS, long-running operation, multiplayer, dedicated servers and a fresh Workshop installation are unverified. Existing blocked eggs may need individual diagnosis. Back up your save.
+Version 0.3.20 targets Windows Steam Palworld 1.0.5.102999. It fixes a v0.3.19 packaging error that could leave the processor's old native module disabled: the building remained visible, but eggs were not locked or processed. The current native modules are rebuilt before packaging. Local startup, attachment, power and DirectX 12 materials are confirmed; the reporter's complete egg-to-material test, FPS, long-running operation, multiplayer, dedicated servers and a fresh Workshop installation remain unverified. Existing blocked eggs may need individual diagnosis. Back up your save.
 [url=https://github.com/paul800901/PalResourceFactoryMod]Source code on GitHub[/url] — MIT license. Unofficial; not affiliated with Pocketpair.
 
 [h2]Issue reports[/h2]
@@ -63,7 +63,7 @@ General users can report issues through [url=https://discord.gg/Swzj4UjejE]Disco
 
 [h2]語言與相容性[/h2]
 介面自動跟隨遊戲設定，包含 17 種語言。科技、建造選單、建築與庫存文字已本地化；機身印字不變。各語言排版與翻譯尚未全部逐一驗證。
-v0.3.19 目標為 Windows Steam 版 Palworld 1.0.5.102999。自訂機器材質現在包含強制 DirectX 12 使用的 SM6 shader，修正 `-dx12` 下的米黃色／棋盤格備援材質；本機單人檢查中兩台機器仍正常運作。這是限定範圍的 DX12 畫面確認，不代表完整回歸。FPS、長時間運轉、多人、專用伺服器及全新工作坊安裝尚未驗證；既有卡住的蛋可能需要個別診斷。請先備份存檔。
+v0.3.20 目標為 Windows Steam 版 Palworld 1.0.5.102999。它修正 v0.3.19 的封包錯誤：處理器的舊原生模組可能被停用，建築仍會顯示，但蛋不會被鎖定或處理。目前的兩個原生模組現在會在封包前重新建置。本機已確認啟動、掛載、供電與 DirectX 12 材質；回報者的完整蛋到材料測試、FPS、長時間運轉、多人、專用伺服器及全新工作坊安裝尚未驗證；既有卡住的蛋可能需要個別診斷。請先備份存檔。
 [url=https://github.com/paul800901/PalResourceFactoryMod]GitHub 原始碼[/url] — MIT 授權。非官方模組，與 Pocketpair 無隸屬關係。
 
 [h2]問題回報[/h2]
