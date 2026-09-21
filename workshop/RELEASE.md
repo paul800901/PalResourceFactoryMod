@@ -11,7 +11,18 @@ a visible machine whose eggs remain removable and never process.
   them; matching an old build to an old installed DLL is no longer sufficient.
 - Local log readback confirms `READY`, `ATTACHED` and `powered=true`. The public
   tester's complete egg consumption/material output remains the runtime gate.
-- Publication readback and final hashes are recorded after upload.
+- Clean native build and all six core tests passed. Package copy verification
+  covered 58 source files; the archive contains no UE4SS DLL, global mod list,
+  saves, progress files or settlement receipts.
+- Candidate SHA-256:
+
+```text
+F6805C627D6B9EC4B27A0169756401B62D4DB896783BFA076D66971DE39757A9  Processor main.dll
+2020FBE135D84B50CF254FFDD2C497FF05CBA2F9D95EC4755FA8C72C59D73445  Breeder main.dll
+196DA8B757DCA8D95B5A06DDED699F76DCDAF8F81E3EECC045F3ED331795AB85  public-v0.3.20 ZIP
+```
+
+Publication readback is recorded after upload.
 
 # v0.3.19 forced DirectX 12 material fix — 2026-09-20
 
