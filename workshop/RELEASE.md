@@ -22,7 +22,15 @@ F6805C627D6B9EC4B27A0169756401B62D4DB896783BFA076D66971DE39757A9  Processor main
 196DA8B757DCA8D95B5A06DDED699F76DCDAF8F81E3EECC045F3ED331795AB85  public-v0.3.20 ZIP
 ```
 
-Publication readback is recorded after upload.
+Publication readback completed:
+
+- Steam Workshop item `3797706995` returned public/OK with 5,759,067 bytes
+  and the v0.3.20 bilingual description.
+- GitHub main, annotated tag `v0.3.20` and prerelease are public. The uploaded
+  ZIP reports the expected SHA-256 `196DA8B757DCA8D95B5A06DDED699F76DCDAF8F81E3EECC045F3ED331795AB85`.
+- GitHub Issues is enabled. The Workshop description readback contains the
+  project Issues URL, the non-expiring Discord invite, all required report
+  fields and the privacy warning in both languages.
 
 # v0.3.19 forced DirectX 12 material fix — 2026-09-20
 
