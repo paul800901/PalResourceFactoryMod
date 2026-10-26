@@ -342,8 +342,9 @@ class EggProcessor final : public CppUserModBase {
         for (auto* model : processors()) {
             if (!facility_power::constructed(model)) continue;
             if (!bool_call(utility, STR("/Script/Pal.PalUtility:IsServer"), model)) continue;
-            if (bool_call(utility, STR("/Script/Pal.PalUtility:IsDedicatedServer"), model) ||
-                bool_call(utility, STR("/Script/Pal.PalUtility:IsOpenListenServer"), model)) continue;
+            // Listen hosts use the same inspected game executable. Remote clients
+            // remain excluded above; dedicated-server native entries are not audited.
+            if (bool_call(utility, STR("/Script/Pal.PalUtility:IsDedicatedServer"), model)) continue;
             // A discovered model can precede its replicated/persistent container.
             auto* module = object_call(model, STR("/Script/Pal.PalMapObjectConcreteModelBase:GetItemContainerModule"));
             if (!live(module)) continue;
@@ -570,7 +571,7 @@ public:
                 }, Hook::FCallbackOptions{false, false, ModName, STR("ProcessorCheckpoint")});
             require(unload != Hook::ERROR_ID, "Processor world-exit checkpoint callback unavailable");
             ready = true;
-            Output::send<LogLevel::Warning>(STR("[PRFProcessor] READY version=0.3.15-localization scope=PRF_EggResourceProcessor power=200/400 solo-only=true game-verified=false breeder=disabled\n"));
+            Output::send<LogLevel::Warning>(STR("[PRFProcessor] READY version=0.3.15-localization scope=PRF_EggResourceProcessor power=200/400 listen-host-test=true dedicated=false game-verified=false breeder=disabled\n"));
         } catch (const std::exception& e) {
             Output::send<LogLevel::Error>(STR("[PRFProcessor] DISABLED {}\n"), to_wstring(e.what()));
         }

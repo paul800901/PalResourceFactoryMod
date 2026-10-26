@@ -206,9 +206,12 @@ private:
         for (const auto& object : lifetime) require(object.Get() != nullptr, "Settlement object expired; replay forbidden");
         require(live(model) && model->GetWorld(), "Test world was unloaded");
         require(bool_call(utility, STR("/Script/Pal.PalUtility:IsServer"), model) &&
-            !bool_call(utility, STR("/Script/Pal.PalUtility:IsDedicatedServer"), model) &&
-            !bool_call(utility, STR("/Script/Pal.PalUtility:IsOpenListenServer"), model),
-            "Manual settlement test is restricted to a local single-player world");
+            !bool_call(utility, STR("/Script/Pal.PalUtility:IsDedicatedServer"), model),
+            "Settlement requires a local or listen host; dedicated-server entries are not audited");
+        // The manual original-incubator probe retains its single-player boundary.
+        // Only the two scoped automatic machines may settle on a listen host.
+        if (original_single) require(!bool_call(utility, STR("/Script/Pal.PalUtility:IsOpenListenServer"), model),
+            "Manual original-incubator settlement test is restricted to single-player");
         require(live(manager) && live(save_manager) && live(dynamic_subsystem), "Settlement subsystem unavailable");
         // The inspected apply defers container notifications while this native
         // batch flag is set. Do not consume an egg before its reset can run.

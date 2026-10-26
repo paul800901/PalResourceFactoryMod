@@ -13,7 +13,7 @@
 namespace {
 #include "ProcessorNative.hpp" // Native conveyor duration/capacity; no processor hooks.
 // Custom-ID frontend and completed eggs verified in game on 2026-09-07.
-// Settlement remains a solo integration test, not a verified release.
+// Settlement supports local/listen-host testing, not a verified multiplayer release.
 constexpr bool ancient_production_enabled = true;
 
 class AncientBreeder final : public CppUserModBase {
@@ -67,8 +67,7 @@ class AncientBreeder final : public CppUserModBase {
             }
             if (!facility_power::constructed(model)) continue;
             if (!bool_call(utility, STR("/Script/Pal.PalUtility:IsServer"), model) ||
-                bool_call(utility, STR("/Script/Pal.PalUtility:IsDedicatedServer"), model) ||
-                bool_call(utility, STR("/Script/Pal.PalUtility:IsOpenListenServer"), model)) continue;
+                bool_call(utility, STR("/Script/Pal.PalUtility:IsDedicatedServer"), model)) continue;
             const auto instance = read_field<st::Guid>(model, STR("InstanceId"));
             if (instance == st::Guid{} || machines.contains(instance)) continue;
             auto* module = object_call(model, STR("/Script/Pal.PalMapObjectConcreteModelBase:GetItemContainerModule"));
@@ -83,7 +82,7 @@ class AncientBreeder final : public CppUserModBase {
                 menu_visual.attach(model,source.id);
                 require(!source.slots.empty() && source.slots.size() <= machine.conveyor.jobs.size(),
                     "Ancient egg capacity exceeds the existing conveyor adapter");
-                Output::send<LogLevel::Warning>(STR("[PRFAncient] ATTACHED egg-slots={} native-breeding=true native-incubation=true settlement-enabled={} solo-test=true\n"), source.slots.size(), ancient_production_enabled);
+                Output::send<LogLevel::Warning>(STR("[PRFAncient] ATTACHED egg-slots={} native-breeding=true native-incubation=true settlement-enabled={} listen-host-test=true\n"), source.slots.size(), ancient_production_enabled);
             } catch (const std::exception& e) {
                 machine.paused = true;
                 Output::send<LogLevel::Error>(STR("[PRFAncient] ATTACH_REFUSED {}\n"), to_wstring(e.what()));
@@ -162,7 +161,7 @@ public:
     AncientBreeder() {
         ModName = STR("PalResourceFactoryAncientBreeder");
         ModVersion = STR("0.1.18-unload-continuation");
-        ModDescription = STR("Native ancient breeding and incubation with closed offspring settlement; solo test only");
+        ModDescription = STR("Native ancient breeding and incubation with closed offspring settlement; local/listen-host test");
         ModAuthors = STR("Paulus");
     }
     ~AncientBreeder() override {
