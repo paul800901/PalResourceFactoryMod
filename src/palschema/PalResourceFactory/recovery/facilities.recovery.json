@@ -1,0 +1,46 @@
+{
+  "PRF_EggResourceProcessor": {
+    "Name": "蛋資源處理機（安全回收佔位）",
+    "Description": "0.3.5 故障建築的存檔救援佔位物。進入世界後請直接拆除；不提供孵化或處理功能。",
+    "BlueprintClassName": "BP_BuildObject_TableSquare_Wood_None",
+    "BlueprintClassSoft": "/Game/Pal/Blueprint/MapObject/BuildObject/Furniture/BP_BuildObject_TableSquare_Wood_None.BP_BuildObject_TableSquare_Wood_None_C",
+    "IconTexture": "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MultiElectricHatchingPalEgg.T_icon_buildObject_MultiElectricHatchingPalEgg",
+    "Hp": 100,
+    "Defense": 0,
+    "MaterialType": "Wood",
+    "MaterialSubType": "Wood",
+    "bBelongToBaseCamp": false,
+    "DeteriorationDamage": 0.0,
+    "BuildingData": {
+      "TypeA": "Pal",
+      "TypeB": "Pal_Breed",
+      "Rank": 0,
+      "RequiredBuildWorkAmount": 1.0,
+      "bIsInstallOnlyOnBase": true,
+      "Material1_Id": "Wood",
+      "Material1_Count": 1
+    }
+  },
+  "PRF_ResourceBreedingFacility": {
+    "Name": "資源繁殖場（安全回收佔位）",
+    "Description": "0.3.5 故障建築的存檔救援佔位物。進入世界後請直接拆除；不提供配種或處理功能。",
+    "BlueprintClassName": "BP_BuildObject_TableSquare_Wood_None",
+    "BlueprintClassSoft": "/Game/Pal/Blueprint/MapObject/BuildObject/Furniture/BP_BuildObject_TableSquare_Wood_None.BP_BuildObject_TableSquare_Wood_None_C",
+    "IconTexture": "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MultiElectricHatchingPalEggWithBreed.T_icon_buildObject_MultiElectricHatchingPalEggWithBreed",
+    "Hp": 100,
+    "Defense": 0,
+    "MaterialType": "Wood",
+    "MaterialSubType": "Wood",
+    "bBelongToBaseCamp": false,
+    "DeteriorationDamage": 0.0,
+    "BuildingData": {
+      "TypeA": "Pal",
+      "TypeB": "Pal_Breed",
+      "Rank": 0,
+      "RequiredBuildWorkAmount": 1.0,
+      "bIsInstallOnlyOnBase": true,
+      "Material1_Id": "Wood",
+      "Material1_Count": 1
+    }
+  }
+}

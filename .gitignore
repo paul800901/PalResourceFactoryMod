@@ -28,3 +28,4 @@ __pycache__/
 /art/blender/export_verification.json
 /tools/workshop-publisher/bin/
 /tools/workshop-publisher/obj/
+/unreal/Config/DefaultEngine.ini

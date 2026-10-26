@@ -1,0 +1,17 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "LocalDummy-1.0",
+  "FriendlyName": "Wwise Dummy Types",
+  "Description": "Editor-only placeholder types used to load Palworld dummy assets. Never packaged with the mod.",
+  "Category": "Local Tooling",
+  "CanContainContent": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "AkAudio",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

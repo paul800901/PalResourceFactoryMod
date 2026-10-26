@@ -1,0 +1,1 @@
+Manual ground-drop test 0.2.0. Ctrl+Alt+F9 CONSUMES one completed egg and requests vanilla ground materials in front of the incubator. No direct chest output. Disposable solo test world only. Ground pickup and Pal hauling require in-game verification. Not the F8 preview.

@@ -1,0 +1,1 @@
+Manual single-egg preview only. Remove this marker while the game is closed to disable.

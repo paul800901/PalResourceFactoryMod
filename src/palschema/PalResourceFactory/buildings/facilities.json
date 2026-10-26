@@ -1,0 +1,81 @@
+{
+  "PRF_EggResourceProcessor": {
+    "Name": "蛋資源處理機",
+    "Description": "封閉式蛋資源處理設備。投入的帕魯蛋會立即鎖定，經自動孵化後依原版規則支解，材料直接送入基地共享倉儲。",
+    "BlueprintClassName": "BP_BuildObject_MultiElectricHatchingPalEgg",
+    "BlueprintClassSoft": "/Game/Pal/Blueprint/MapObject/BuildObject/BP_BuildObject_MultiElectricHatchingPalEgg.BP_BuildObject_MultiElectricHatchingPalEgg_C",
+    "IconTexture": "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MultiElectricHatchingPalEgg.T_icon_buildObject_MultiElectricHatchingPalEgg",
+    "Hp": 4000,
+    "Defense": 3,
+    "MaterialType": "Stone",
+    "MaterialSubType": "Stone",
+    "bBelongToBaseCamp": true,
+    "DeteriorationDamage": 0.2,
+    "BuildingData": {
+      "TypeA": "Pal",
+      "TypeB": "Pal_Breed",
+      "Rank": 1,
+      "RequiredBuildWorkAmount": 5000.0,
+      "bIsInstallOnlyOnBase": true,
+      "Material1_Id": "Wood",
+      "Material1_Count": 1
+    },
+    "Technology": {
+      "UnlockBuildObjects": [
+        "PRF_EggResourceProcessor"
+      ],
+      "IconName": "MultiElectricHatchingPalEgg",
+      "IsBossTechnology": false,
+      "Name": "蛋資源處理機",
+      "Description": "設計進度為26級：將投入的帕魯蛋自動孵化並支解為原版掉落材料，投入後不可取消。功能測試版暫時只需木材×1，且不需供電。",
+      "LevelCap": 1,
+      "Cost": 3
+    }
+  },
+  "PRF_ResourceBreedingFacility": {
+    "Name": "資源繁殖場",
+    "Description": "指定兩隻親代後，自動配種、孵化並依原版規則支解後代。只接受蛋糕與蔬菜蛋糕，流程開始後不可取消。",
+    "BlueprintClassName": "BP_BuildObject_MultiElectricHatchingPalEggWithBreed",
+    "BlueprintClassSoft": "/Game/Pal/Blueprint/MapObject/BuildObject/BP_BuildObject_MultiElectricHatchingPalEggWithBreed.BP_BuildObject_MultiElectricHatchingPalEggWithBreed_C",
+    "IconTexture": "/Game/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MultiElectricHatchingPalEggWithBreed.T_icon_buildObject_MultiElectricHatchingPalEggWithBreed",
+    "Hp": 6000,
+    "Defense": 3,
+    "MaterialType": "Stone",
+    "MaterialSubType": "Stone",
+    "bBelongToBaseCamp": true,
+    "DeteriorationDamage": 0.2,
+    "Assignments": [
+      {
+        "WorkSuitability": "Anyone",
+        "WorkSuitabilityRank": 0,
+        "bPlayerWorkable": false,
+        "bBaseCampWorkerWorkable": true,
+        "WorkType": "AncientBreedFarm",
+        "WorkActionType": "CommonWork",
+        "WorkerMaxNum": 2,
+        "AffectSanityValue": 0.0,
+        "AffectFullStomachValue": 0.0
+      }
+    ],
+    "BuildingData": {
+      "TypeA": "Pal",
+      "TypeB": "Pal_Breed",
+      "Rank": 1,
+      "RequiredBuildWorkAmount": 10000.0,
+      "bIsInstallOnlyOnBase": true,
+      "Material1_Id": "Wood",
+      "Material1_Count": 1
+    },
+    "Technology": {
+      "UnlockBuildObjects": [
+        "PRF_ResourceBreedingFacility"
+      ],
+      "IconName": "MultiElectricHatchingPalEggWithBreed",
+      "IsBossTechnology": false,
+      "Name": "資源繁殖場",
+      "Description": "設計進度為36級：讓兩隻親代持續生產資源用後代，後代不進入帕魯終端而直接支解。功能測試版暫時只需木材×1，且不需供電。",
+      "LevelCap": 1,
+      "Cost": 4
+    }
+  }
+}
